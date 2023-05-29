@@ -26,6 +26,7 @@ async function transcribeAudio(
     return transcription;
   } catch (error) {
     console.error("Error transcribing audio:", error);
+    throw error;
   }
 }
 

@@ -10,6 +10,7 @@ async function detectLanguage(text) {
     return detection.language;
   } catch (error) {
     console.error("Error detecting language:", error);
+    throw error;
   }
 }
 
@@ -18,6 +19,7 @@ async function translateText(text, targetLanguage) {
     const [translation] = await translate.translate(text, targetLanguage);
   } catch (error) {
     console.error("Error translating text:", error);
+    throw error;
   }
 }
 
