@@ -1,17 +1,21 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const transcribeTranslateRouter = require("./routes/transcribe-translate");
+const transcribeTranslate = require("./routes/transcribe-translate");
 
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Routes
-app.use("/api/transcribe-translate", transcribeTranslateRouter);
+app.use("/api/transcribe-translate", transcribeTranslate);
+
+app.post("/api/transcribe-translate/test", (req, res) => {
+  res.send({ transcription: "12345", translation: "678910" });
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;

@@ -57,9 +57,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "proxyConfig": "proxy.config.json"
-          },
+          "options": {},
           "configurations": {
             "production": {
               "browserTarget": "audio-to-text-and-translator:build:production"

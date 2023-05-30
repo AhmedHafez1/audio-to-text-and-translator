@@ -1,4 +1,4 @@
-const { transcribeAudio } = require("../services/speechToTextService");
+const transcribeAudio = require("../services/speechToTextService");
 const {
   detectLanguage,
   translateText,
@@ -6,14 +6,9 @@ const {
 
 async function transcribeTranslate(req, res) {
   try {
-    const {
-      audioBuffer,
-      encoding,
-      sampleRateHertz,
-      languageCode,
-      targetLanguage,
-    } = req.body;
-    const buffer = Buffer.from(audioBuffer, "base64");
+    const { encoding, sampleRateHertz, languageCode, targetLanguage } =
+      req.body;
+    const buffer = Buffer.from(req.file.buffer, "base64");
 
     // Transcribe the audio
     const transcription = await transcribeAudio(
@@ -28,7 +23,7 @@ async function transcribeTranslate(req, res) {
 
     // Translate the transcription to the target language
     const translation =
-      detectLanguage !== targetLanguage
+      detectedLanguage !== targetLanguage
         ? await translateText(transcription, targetLanguage)
         : transcription;
 

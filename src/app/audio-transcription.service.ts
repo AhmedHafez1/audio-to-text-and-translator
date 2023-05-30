@@ -6,15 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AudioTranscriptionService {
-  private readonly apiUrl = '/api/transcribe-translate';
+  private readonly apiUrl = 'http://localhost:3000/api/transcribe-translate';
   constructor(private http: HttpClient) {}
 
   public transcribeAndTranslateAudio(
-    audiBlop: Blob,
+    audioBlop: Blob,
     targetLanguage: string
   ): Observable<{ transcription: string; translation: string }> {
     const formData = new FormData();
-    formData.append('audioBuffer', audiBlop, 'audio.wav');
+    formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
     formData.append('sampleRateHertz', '16000');
     formData.append('languageCode', 'en-US');
