@@ -37,4 +37,28 @@ export class AudioRecorderComponent implements OnInit {
         console.error('Error starting recording:', error);
       });
   }
+
+  stopRecording(): void {
+    this.isRecording = false;
+    if (this.recordRTC) {
+      this.recordRTC.stopRecording(() => {
+        const audioBlop = this.recordRTC?.getBlob();
+        if (audioBlop) {
+          this.audioTranscriptionService
+            .transcribeAndTranslateAudio(audioBlop, 'ar')
+            .subscribe({
+              next: (response) => {
+                this.transcription = response.transcription;
+                this.translation = response.translation;
+              },
+              error: (error) =>
+                console.error(
+                  'Error transcribing and translating audio:',
+                  error
+                ),
+            });
+        }
+      });
+    }
+  }
 }

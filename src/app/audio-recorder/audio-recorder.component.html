@@ -1,1 +1,16 @@
-<p>audio-recorder works!</p>
+<div>
+  <button (click)="startRecording()" [disabled]="isRecording">
+    Start Recording
+  </button>
+  <button (click)="stopRecording()" [disabled]="!isRecording">
+    Stop Recording
+  </button>
+</div>
+<div *ngIf="transcription">
+  <h2>Transcription:</h2>
+  <p>{{ transcription }}</p>
+</div>
+<div *ngIf="translation">
+  <h2>Translation:</h2>
+  <p>{{ translation }}</p>
+</div>
