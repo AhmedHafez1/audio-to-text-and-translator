@@ -1,5 +1,5 @@
 const speech = require("@google-cloud/speech");
-const client = speech.SpeechClient();
+const client = new speech.SpeechClient();
 
 async function transcribeAudio(
   audioBuffer,

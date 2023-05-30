@@ -1,8 +1,8 @@
-const { transcribeAudio } = require("./services/speechToTextService");
+const { transcribeAudio } = require("../services/speechToTextService");
 const {
   detectLanguage,
   translateText,
-} = require("./services/translationService");
+} = require("../services/translationService");
 
 async function transcribeTranslate(req, res) {
   try {
