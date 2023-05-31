@@ -19,15 +19,15 @@ async function transcribeTranslate(req, res) {
     );
 
     // Detect the language of the transcription
-    const detectedLanguage = await detectLanguage(transcription);
+    // const detectedLanguage = await detectLanguage(transcription);
 
     // Translate the transcription to the target language
-    const translation =
-      detectedLanguage !== targetLanguage
-        ? await translateText(transcription, targetLanguage)
-        : transcription;
+    // const translation =
+    //   detectedLanguage !== targetLanguage
+    //     ? await translateText(transcription, targetLanguage)
+    //     : transcription;
 
-    res.json({ transcription, translation });
+    res.json({ transcription });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

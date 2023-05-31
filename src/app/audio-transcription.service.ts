@@ -16,7 +16,7 @@ export class AudioTranscriptionService {
     const formData = new FormData();
     formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
-    formData.append('sampleRateHertz', '16000');
+    formData.append('sampleRateHertz', '48000');
     formData.append('languageCode', 'en-US');
     formData.append('targetLanguage', targetLanguage);
 

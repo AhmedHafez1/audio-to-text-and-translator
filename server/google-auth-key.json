@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "zeta-rush-388206",
+  "private_key_id": "16e4ccaf4da7dcff57182007335f6170ca52a4fe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDGfgpBwXCciY+k\nGvG2IoCv2zrXGvCdSP2GCy2tVTsZnbjxTaUY6nFCVgxss7G1FgDrBiiGLFFopn22\nea+OpsL6ShMUwz1StsfZNfiCqKcRl2+s6L9DCkksgtqR3aTxUrpqJEOm5BFSqS3Y\nVRGr9YstLez6xho/ebGbkxpwia6rt5MREpyg3SWbU3xeZlBWF5sxkRbmpegkSyj1\nEkyCu7tGo6Djf8iCFw7MYSNeiKxOUxpSYS9qhVnADqo+WALfvnJotHgRJEw9Lpn9\nR88ZgT5Q4thjT0JiXbr5p5+2OiVoBuKfFE+24YPIq6wzxerHHhpXlNG/r56nVrtt\n13OUpqGTAgMBAAECggEACtzJ7ehKo95pVHc/BBMmTLloIm5wfYMJkMTa1pID/nZh\nsR7pKpBl61XvLyG0V28hVLtNC26wc9QsrAhDwcBBilX0bl3y5KxpCmuIMopNPkq1\ny1YfZWlSMNPmZzYkeSpoVjeu1hrEEex9PEoHggwZdjr9rYma1R9xR0zJFSCLxQzZ\nk1E3J9xRZgzUMKrmhhdv+t2hBBSi1yCtkn6k3C0TsKI/56I5UWxbk4YMZSJcgLim\nr0FzLTfpcGOG6F+1Do7g7ZM8Juz9StRvWArb/WO/zIKSoE+8INT29g/BDsEFKMvU\n1ithaTFTIqXEkvQXwRhQImlAre0UsFvH5NMwkdM5sQKBgQDuKQDm3BZRt47Oj70a\nUY5sMI3ND+kRwDfqzQvHjRfGCz0YFuv+yuL6TErMWG131PLIfYUpm5IncZgJx2oh\nojNK5R3Ahu8qXEqtGWtq2iU+DbI7/YgxbWT3Ku0yYueSdCeudqaDz8yOVdl6fsCL\nnqcx+WSppvRhdyQr7Llkiv4f8QKBgQDVXFwyGuWlExyi2dNGb3bMaIEaG23KhfFu\nQNmPpLyzQ1Pv/EjqQPzVO0TrnxaggADkl8kKb54Hx2rK3uJbbAQJCeBT9Hr/IUH9\nfL1gDddUgbDwtES7nmsXv0JlJutd0wCrwMV6xoQt4Bvgf3mY491bBZ13fiRfKz0k\nbbtruNYdwwKBgANchsu7XYFHwvc9ZiDh982lHctAJzz95owk2r61ShmcfP9DC4+s\nE2oO+5tIwDrJwad8xg1hSb3Ox6OTsfbJkEnFVBcskGGbrd4llrOKYq4uiU55dJul\n/J/UdkaYyMXzZ7/5or4Hh86WfZxR/6u40IlPCNGwLpDVmqgYDkHSCGYxAoGADt1u\ndvc0xLl+J0Jx29hsOHWXeRAsKA4I8huGjOF3XC32rSOwmNGKS/jjJl9hHjGM3mBM\n23NHWVdlc1jwAFqYNWEAxhikcR4KEPUd5JFSTUrz3vFQUJoK8A6dO5rojxLiWxUF\nLTajgua4Sn3XJPXLOEo93FNniVHj4qPaiPjJwi0CgYAOVxfgVDq/w25lYd2NUUBK\nMyWa6QyGOfinTnYG8OX3o14sVhWR0AoqkjOdrOCd+unSNy2w7rAqoF6VMRklyYlA\nM/ABJiGpSTpQT6HX6c2Ah7oI8SzVNKYUZgTmcVKDk9XKgfstA0x7Wf1j/SAkfRn+\nbgrUxdpH3izv4wArGMABQA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ahmed-abdelghany-hafez@zeta-rush-388206.iam.gserviceaccount.com",
+  "client_id": "103595001021989969108",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ahmed-abdelghany-hafez%40zeta-rush-388206.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
