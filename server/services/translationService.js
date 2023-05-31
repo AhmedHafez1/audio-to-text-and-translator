@@ -1,6 +1,6 @@
 const { Translate } = require("@google-cloud/translate").v2;
 const translate = new Translate({
-  key: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  key: process.env.GOOGLE_API_KEY,
 });
 
 async function detectLanguage(text) {
@@ -17,6 +17,7 @@ async function detectLanguage(text) {
 async function translateText(text, targetLanguage) {
   try {
     const [translation] = await translate.translate(text, targetLanguage);
+    return translation;
   } catch (error) {
     console.error("Error translating text:", error);
     throw error;
