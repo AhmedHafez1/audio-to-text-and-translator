@@ -1,16 +1,30 @@
-<div>
-  <button (click)="startRecording()" [disabled]="isRecording">
-    Start Recording
-  </button>
-  <button (click)="stopRecording()" [disabled]="!isRecording">
-    Stop Recording
-  </button>
-</div>
-<div *ngIf="transcription">
-  <h2>Transcription:</h2>
-  <p>{{ transcription }}</p>
-</div>
-<div *ngIf="translation">
-  <h2>Translation:</h2>
-  <p>{{ translation }}</p>
+<div class="container">
+  <div class="buttons">
+    <button
+      class="record-btn"
+      (click)="startRecording()"
+      [disabled]="isRecording"
+    >
+      <i class="fas fa-microphone"></i>
+      <span>Start Recording</span>
+    </button>
+    <button
+      class="stop-btn"
+      (click)="stopRecording()"
+      [disabled]="!isRecording"
+    >
+      <i class="fas fa-stop"></i>
+      <span>Stop Recording</span>
+    </button>
+  </div>
+  <div class="content">
+    <div class="transcription">
+      <h2>Transcription</h2>
+      <p *ngIf="transcription">{{ transcription }}</p>
+    </div>
+    <div class="translation">
+      <h2>Translation</h2>
+      <p *ngIf="translation">{{ translation }}</p>
+    </div>
+  </div>
 </div>
