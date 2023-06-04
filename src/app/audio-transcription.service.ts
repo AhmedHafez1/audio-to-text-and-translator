@@ -11,15 +11,15 @@ export class AudioTranscriptionService {
 
   public transcribeAndTranslateAudio(
     audioBlop: Blob,
+    inputLanguage: string,
     targetLanguage: string
   ): Observable<{ transcription: string; translation: string }> {
     const formData = new FormData();
-    console.log(audioBlop);
 
     formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
     formData.append('sampleRateHertz', '48000');
-    formData.append('languageCode', 'en-US');
+    formData.append('languageCode', inputLanguage);
     formData.append('targetLanguage', targetLanguage);
 
     return this.http.post<{ transcription: string; translation: string }>(
