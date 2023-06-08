@@ -5,14 +5,8 @@
   <app-speech-recording
     (speechRecorded)="getTranscriptionAndTranslation($event)"
   ></app-speech-recording>
-  <div class="content">
-    <div class="transcription">
-      <h2>Transcription</h2>
-      <p *ngIf="transcription">{{ transcription }}</p>
-    </div>
-    <div class="translation">
-      <h2>Translation</h2>
-      <p *ngIf="translation">{{ translation }}</p>
-    </div>
-  </div>
+  <app-transcription-translation-output
+    transcription="transcription"
+    translation="translation"
+  ></app-transcription-translation-output>
 </div>

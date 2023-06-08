@@ -1,1 +1,10 @@
-<p>transcription-translation-output works!</p>
+<div class="content">
+  <div class="transcription">
+    <h2>Transcription</h2>
+    <p *ngIf="transcription">{{ transcription }}</p>
+  </div>
+  <div class="translation">
+    <h2>Translation</h2>
+    <p *ngIf="translation">{{ translation }}</p>
+  </div>
+</div>

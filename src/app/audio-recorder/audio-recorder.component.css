@@ -6,38 +6,3 @@
   box-shadow: 0 5px 15px #8080806b;
   border-radius: 5px;
 }
-
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 78vh;
-}
-
-.transcription,
-.translation {
-  margin: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
-
-h2 {
-  padding: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  background-color: #025fc3;
-  margin-top: 0;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  color: floralwhite;
-  text-align: center;
-}
-
-p {
-  padding: 20px 40px;
-  font-size: 18px;
-  margin: 0;
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-}
