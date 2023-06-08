@@ -1,1 +1,14 @@
-<p>speech-recording works!</p>
+<div class="buttons">
+  <button
+    class="record-btn"
+    (click)="startRecording()"
+    [disabled]="isRecording"
+  >
+    <i class="fas fa-microphone"></i>
+    <span>Start Recording</span>
+  </button>
+  <button class="stop-btn" (click)="stopRecording()" [disabled]="!isRecording">
+    <i class="fas fa-stop"></i>
+    <span>Stop Recording</span>
+  </button>
+</div>

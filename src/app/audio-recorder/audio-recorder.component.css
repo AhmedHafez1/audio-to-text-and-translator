@@ -7,55 +7,6 @@
   border-radius: 5px;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  padding: 15px;
-  background: #eee;
-}
-
-.record-btn,
-.stop-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #025fc3;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.record-btn:hover,
-.stop-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.record-btn:active,
-.stop-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.record-btn[disabled],
-.stop-btn[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.record-btn span,
-.stop-btn span {
-  margin-left: 10px;
-}
-
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
