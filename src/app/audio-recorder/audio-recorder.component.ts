@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 import { AudioTranscriptionService } from '../audio-transcription.service';
-import { LANGUAGES } from '../languages.constants';
 
 @Component({
   selector: 'app-audio-recorder',
@@ -12,9 +11,11 @@ export class AudioRecorderComponent implements OnInit {
   isRecording = false;
   transcription: string | null = null;
   translation: string | null = null;
-  languages = LANGUAGES;
-  targetLanguage: string = 'ar';
-  inputLanguage: string = 'en';
+  selectedLanguages = {
+    targetLanguage: 'ar',
+    inputLanguage: 'en',
+  };
+
   private recordRTC: RecordRTC | null = null;
 
   constructor(private audioTranscriptionService: AudioTranscriptionService) {}
@@ -51,8 +52,8 @@ export class AudioRecorderComponent implements OnInit {
           this.audioTranscriptionService
             .transcribeAndTranslateAudio(
               audioBlop,
-              this.inputLanguage,
-              this.targetLanguage
+              this.selectedLanguages.inputLanguage,
+              this.selectedLanguages.targetLanguage
             )
             .subscribe({
               next: (response) => {

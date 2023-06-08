@@ -1,23 +1,7 @@
 <div class="container">
-  <div class="select-lang">
-    <div>
-      <label class="language-label">Input Language</label>
-      <select class="language-select" [(ngModel)]="inputLanguage">
-        <option *ngFor="let language of languages" [value]="language.code">
-          {{ language.name }}
-        </option>
-      </select>
-    </div>
-
-    <div>
-      <label class="language-label">Target Language</label>
-      <select class="language-select" [(ngModel)]="targetLanguage">
-        <option *ngFor="let language of languages" [value]="language.code">
-          {{ language.name }}
-        </option>
-      </select>
-    </div>
-  </div>
+  <app-select-languages
+    [selectedLanguages]="selectedLanguages"
+  ></app-select-languages>
   <div class="buttons">
     <button
       class="record-btn"

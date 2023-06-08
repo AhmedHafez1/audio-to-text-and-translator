@@ -17,17 +17,6 @@
   background: #eee;
 }
 
-.select-lang {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
 .record-btn,
 .stop-btn {
   display: flex;
@@ -100,55 +89,4 @@ p {
   margin: 0;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
-}
-.language-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-}
-
-.language-label {
-  font-weight: bold;
-  padding-bottom: 8px;
-  color: #03458b;
-  display: inline-block;
-}
-
-.language-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  transition: all 0.3s;
-}
-
-.language-select:hover,
-.language-select:focus {
-  outline: none;
-  border-color: #025fc3;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
-}
-
-.language-select option {
-  font-size: 14px;
-}
-
-/* Customize the appearance of the dropdown arrow */
-.language-select::after {
-  content: "";
-  position: absolute;
-  top: calc(50% - 4px);
-  right: 10px;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #025fc3;
-  border-right: 2px solid #025fc3;
-  transform: rotate(45deg);
-  pointer-events: none;
-  transition: transform 0.3s ease;
-}
-
-.language-select:hover::after {
-  transform: rotate(-135deg);
 }
