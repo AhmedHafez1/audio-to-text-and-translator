@@ -6,7 +6,7 @@
     (speechRecorded)="getTranscriptionAndTranslation($event)"
   ></app-speech-recording>
   <app-transcription-translation-output
-    transcription="transcription"
-    translation="translation"
+    [transcription]="transcription"
+    [translation]="translation"
   ></app-transcription-translation-output>
 </div>
