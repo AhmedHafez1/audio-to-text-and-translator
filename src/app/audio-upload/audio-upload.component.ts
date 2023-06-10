@@ -17,19 +17,15 @@ export class AudioUploadComponent {
       const audioFile = fileInput.files[0];
       const reader = new FileReader();
 
-      reader.onload = async (e: ProgressEvent<FileReader>) => {
+      reader.onload = (e: ProgressEvent<FileReader>) => {
         if (e.target && e.target.result) {
           const arrayBuffer = e.target.result as ArrayBuffer;
           const audioBlob = new Blob([arrayBuffer], { type: 'audio/wav' });
 
-          try {
-            const audioWavBlob = await this.audioConverterService.convertToWav(
-              audioBlob
-            );
-            this.audioUploaded.emit(audioWavBlob);
-          } catch (error) {
-            console.error(error);
-          }
+          this.audioConverterService.convertToWav(audioBlob).subscribe({
+            next: (wavFile) => this.audioUploaded.emit(wavFile),
+            error: (error) => console.error(error),
+          });
         }
       };
 

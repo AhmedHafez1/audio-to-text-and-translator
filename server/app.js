@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const transcribeTranslate = require("./routes/transcribe-translate");
-
+const audioConvert = require("./routes/audio-converter");
 const app = express();
 
 // Middleware
@@ -10,10 +10,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/transcribe-translate", transcribeTranslate);
-
-app.post("/api/transcribe-translate/test", (req, res) => {
-  res.send({ transcription: "12345", translation: "678910" });
-});
+app.use("/api/convert", audioConvert);
 
 // Start the server
 const PORT = process.env.PORT || 3000;

@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-// Mutler
+// Multer
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
