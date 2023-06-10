@@ -16,6 +16,8 @@ export class AudioTranscriptionService {
   ): Observable<{ transcription: string; translation: string }> {
     const formData = new FormData();
 
+    console.log(audioBlop);
+
     formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
     formData.append('sampleRateHertz', '48000');

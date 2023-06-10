@@ -5,6 +5,9 @@
   <app-speech-recording
     (speechRecorded)="getTranscriptionAndTranslation($event)"
   ></app-speech-recording>
+  <app-audio-upload
+    (audioUploaded)="getTranscriptionAndTranslation($event)"
+  ></app-audio-upload>
   <app-transcription-translation-output
     [transcription]="transcription"
     [translation]="translation"

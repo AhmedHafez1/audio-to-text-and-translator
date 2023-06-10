@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { SelectLanguagesComponent } from './select-languages/select-languages.component';
 import { TranscriptionTranslationOutputComponent } from './transcription-translation-output/transcription-translation-output.component';
 import { SpeechRecordingComponent } from './speech-recording/speech-recording.component';
+import { AudioUploadComponent } from './audio-upload/audio-upload.component';
 
 @NgModule({
-  declarations: [AppComponent, AudioRecorderComponent, SelectLanguagesComponent, TranscriptionTranslationOutputComponent, SpeechRecordingComponent],
+  declarations: [AppComponent, AudioRecorderComponent, SelectLanguagesComponent, TranscriptionTranslationOutputComponent, SpeechRecordingComponent, AudioUploadComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
