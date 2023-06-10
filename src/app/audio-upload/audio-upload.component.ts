@@ -1,5 +1,5 @@
+import { AudioConverterService } from './../audio-converter.service';
 import { Component, EventEmitter, Output } from '@angular/core';
-import * as ffmpeg from 'ffmpeg.js/ffmpeg-mp4';
 
 @Component({
   selector: 'app-audio-upload',
@@ -9,51 +9,31 @@ import * as ffmpeg from 'ffmpeg.js/ffmpeg-mp4';
 export class AudioUploadComponent {
   @Output() audioUploaded: EventEmitter<Blob> = new EventEmitter();
 
+  constructor(private audioConverterService: AudioConverterService) {}
+
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       const audioFile = fileInput.files[0];
       const reader = new FileReader();
 
-      reader.onload = (e: ProgressEvent<FileReader>) => {
+      reader.onload = async (e: ProgressEvent<FileReader>) => {
         if (e.target && e.target.result) {
           const arrayBuffer = e.target.result as ArrayBuffer;
-          this.convertMP4ToWAV(arrayBuffer);
+          const audioBlob = new Blob([arrayBuffer], { type: 'audio/wav' });
+
+          try {
+            const audioWavBlob = await this.audioConverterService.convertToWav(
+              audioBlob
+            );
+            this.audioUploaded.emit(audioWavBlob);
+          } catch (error) {
+            console.error(error);
+          }
         }
       };
 
       reader.readAsArrayBuffer(audioFile);
     }
-  }
-
-  private convertMP4ToWAV(arrayBuffer: ArrayBuffer): void {
-    const ffmpegOptions = {
-      MEMFS: [{ name: 'input.mp4', data: new Uint8Array(arrayBuffer) }],
-      arguments: [
-        '-i',
-        'input.mp4',
-        '-vn',
-        '-acodec',
-        'pcm_s16le',
-        '-ar',
-        '44100',
-        '-ac',
-        '1',
-        'output.wav',
-      ],
-      print: () => {},
-      printErr: () => {},
-      onExit: (code: number) => {
-        if (code === 0) {
-          const wavFile = ffmpeg.FS('readFile', 'output.wav');
-          const audioBlob = new Blob([wavFile.buffer], { type: 'audio/wav' });
-          this.audioUploaded.emit(audioBlob);
-        } else {
-          console.error('Error converting MP4 to WAV:', code);
-        }
-      },
-    };
-
-    ffmpeg.run(ffmpegOptions);
   }
 }
