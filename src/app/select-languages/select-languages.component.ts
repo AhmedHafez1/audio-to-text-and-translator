@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./select-languages.component.css'],
 })
 export class SelectLanguagesComponent implements OnInit {
-  @Input() selectedLanguages!: Record<string, string>;
+  @Input() selectedLanguagesOptions!: Record<string, string>;
   languages = LANGUAGES;
 
   constructor() {}

@@ -1,13 +1,17 @@
 <div class="container">
-  <app-select-languages
-    [selectedLanguages]="selectedLanguages"
-  ></app-select-languages>
-  <app-speech-recording
-    (speechRecorded)="getTranscriptionAndTranslation($event)"
-  ></app-speech-recording>
-  <app-audio-upload
-    (audioUploaded)="getTranscriptionAndTranslation($event)"
-  ></app-audio-upload>
+  <section class="actions">
+    <app-select-languages
+      [selectedLanguagesOptions]="selectedLanguagesOptions"
+    ></app-select-languages>
+    <app-speech-recording
+      *ngIf="selectedLanguagesOptions['selectedInputMode'] === 'record'"
+      (speechRecorded)="getTranscriptionAndTranslation($event)"
+    ></app-speech-recording>
+    <app-audio-upload
+      *ngIf="selectedLanguagesOptions['selectedInputMode'] === 'upload'"
+      (audioUploaded)="getTranscriptionAndTranslation($event)"
+    ></app-audio-upload>
+  </section>
   <app-transcription-translation-output
     [transcription]="transcription"
     [translation]="translation"

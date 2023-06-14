@@ -3,7 +3,7 @@
     <label class="language-label">Input Language</label>
     <select
       class="language-select"
-      [(ngModel)]="selectedLanguages['inputLanguage']"
+      [(ngModel)]="selectedLanguagesOptions['inputLanguage']"
     >
       <option *ngFor="let language of languages" [value]="language.code">
         {{ language.name }}
@@ -15,11 +15,34 @@
     <label class="language-label">Target Language</label>
     <select
       class="language-select"
-      [(ngModel)]="selectedLanguages['targetLanguage']"
+      [(ngModel)]="selectedLanguagesOptions['targetLanguage']"
     >
       <option *ngFor="let language of languages" [value]="language.code">
         {{ language.name }}
       </option>
     </select>
+  </div>
+
+  <div class="input-mode">
+    <div class="radio-option">
+      <input
+        type="radio"
+        id="recordOption"
+        name="inputMode"
+        value="record"
+        [(ngModel)]="selectedLanguagesOptions['selectedInputMode']"
+      />
+      <label for="recordOption">Record</label>
+    </div>
+    <div class="radio-option">
+      <input
+        type="radio"
+        id="uploadOption"
+        name="inputMode"
+        value="upload"
+        [(ngModel)]="selectedLanguagesOptions['selectedInputMode']"
+      />
+      <label for="uploadOption">Upload</label>
+    </div>
   </div>
 </div>

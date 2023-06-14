@@ -10,9 +10,10 @@ import { AudioTranscriptionService } from '../audio-transcription.service';
 export class AudioRecorderComponent implements OnInit {
   transcription: string | null = null;
   translation: string | null = null;
-  selectedLanguages = {
+  selectedLanguagesOptions = {
     targetLanguage: 'ar',
     inputLanguage: 'en',
+    selectedInputMode: 'record',
   };
 
   constructor(private audioTranscriptionService: AudioTranscriptionService) {}
@@ -23,8 +24,8 @@ export class AudioRecorderComponent implements OnInit {
     this.audioTranscriptionService
       .transcribeAndTranslateAudio(
         audioBlop,
-        this.selectedLanguages.inputLanguage,
-        this.selectedLanguages.targetLanguage
+        this.selectedLanguagesOptions.inputLanguage,
+        this.selectedLanguagesOptions.targetLanguage
       )
       .subscribe({
         next: (response) => {

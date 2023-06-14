@@ -3,9 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
   padding: 15px;
-  background: #eee;
 }
 
 .record-btn,

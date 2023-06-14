@@ -6,3 +6,8 @@
   box-shadow: 0 5px 15px #8080806b;
   border-radius: 5px;
 }
+
+.actions {
+  display: flex;
+  align-items: flex-end;
+}
