@@ -6,17 +6,11 @@ const {
 
 async function transcribeTranslate(req, res) {
   try {
-    const { encoding, sampleRateHertz, languageCode, targetLanguage } =
-      req.body;
+    const { encoding, languageCode, targetLanguage } = req.body;
     const buffer = Buffer.from(req.file.buffer, "base64");
 
     // Transcribe the audio
-    const transcription = await transcribeAudio(
-      buffer,
-      encoding,
-      sampleRateHertz,
-      languageCode
-    );
+    const transcription = await transcribeAudio(buffer, encoding, languageCode);
 
     // Detect the language of the transcription
     const detectedLanguage = await detectLanguage(transcription);

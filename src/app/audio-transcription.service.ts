@@ -20,7 +20,6 @@ export class AudioTranscriptionService {
 
     formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
-    formData.append('sampleRateHertz', '48000');
     formData.append('languageCode', inputLanguage);
     formData.append('targetLanguage', targetLanguage);
 

@@ -4,7 +4,7 @@ const client = new speech.SpeechClient();
 async function transcribeAudio(
   audioBuffer,
   encoding,
-  sampleRateHertz,
+  // sampleRateHertz,
   languageCode
 ) {
   const request = {
@@ -13,7 +13,6 @@ async function transcribeAudio(
     },
     config: {
       encoding,
-      sampleRateHertz,
       languageCode,
     },
   };
