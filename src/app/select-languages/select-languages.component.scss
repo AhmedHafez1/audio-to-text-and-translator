@@ -1,6 +1,7 @@
 .select-lang {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -53,30 +54,4 @@
 
 .language-select:hover::after {
   transform: rotate(-135deg);
-}
-
-.input-mode {
-  display: flex;
-  justify-content: center;
-}
-
-.radio-option {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  transition: all 0.2s;
-}
-
-.radio-option input {
-  cursor: pointer;
-  margin-right: 5px;
-  transform: scale(1.7); /* Increase the size of the radio button */
-}
-
-.radio-option label {
-  cursor: pointer;
-  margin-left: 4px;
-  color: #03458b; /* Set a relevant color for the label */
-  font-weight: bold;
-  display: inline-block;
 }

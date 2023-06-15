@@ -3,7 +3,7 @@ import * as RecordRTC from 'recordrtc';
 @Component({
   selector: 'app-speech-recording',
   templateUrl: './speech-recording.component.html',
-  styleUrls: ['./speech-recording.component.css'],
+  styleUrls: ['./speech-recording.component.scss'],
 })
 export class SpeechRecordingComponent implements OnInit {
   @Output() speechRecorded: EventEmitter<Blob> = new EventEmitter();

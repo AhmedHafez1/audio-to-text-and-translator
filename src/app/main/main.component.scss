@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #59a0e3ba;
+  margin: 30px 200px;
+  box-shadow: 0 5px 15px #8080806b;
+  border-radius: 5px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1488px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

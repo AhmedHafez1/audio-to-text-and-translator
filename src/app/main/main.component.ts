@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { AudioTranscriptionService } from '../audio-transcription.service';
 
 @Component({
-  selector: 'app-audio-recorder',
-  templateUrl: './audio-recorder.component.html',
-  styleUrls: ['./audio-recorder.component.css'],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
-export class AudioRecorderComponent implements OnInit {
+export class MainComponent implements OnInit {
   transcription: string | null = null;
   translation: string | null = null;
   selectedLanguagesOptions = {

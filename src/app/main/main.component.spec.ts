@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioRecorderComponent } from './audio-recorder.component';
+import { MainComponent } from './main.component';
 
 describe('AudioRecorderComponent', () => {
-  let component: AudioRecorderComponent;
-  let fixture: ComponentFixture<AudioRecorderComponent>;
+  let component: MainComponent;
+  let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AudioRecorderComponent ]
-    })
-    .compileComponents();
+      declarations: [MainComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(AudioRecorderComponent);
+    fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

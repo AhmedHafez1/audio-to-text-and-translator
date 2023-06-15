@@ -3,6 +3,9 @@
     <app-select-languages
       [selectedLanguagesOptions]="selectedLanguagesOptions"
     ></app-select-languages>
+    <app-select-input-way
+      [selectedLanguagesOptions]="selectedLanguagesOptions"
+    ></app-select-input-way>
     <app-speech-recording
       *ngIf="selectedLanguagesOptions['selectedInputMode'] === 'record'"
       (speechRecorded)="getTranscriptionAndTranslation($event)"
