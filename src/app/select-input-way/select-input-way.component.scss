@@ -1,18 +1,24 @@
+:host {
+  height: 100%;
+  margin-bottom: 10px;
+}
+
 .input-mode {
+  height: 100%;
   display: flex;
+  gap: 17px;
   justify-content: center;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
-  margin-right: 10px;
   transition: all 0.2s;
 }
 
 .radio-option input {
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 7px;
   transform: scale(1.7); /* Increase the size of the radio button */
 }
 

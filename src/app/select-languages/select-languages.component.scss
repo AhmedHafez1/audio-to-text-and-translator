@@ -1,3 +1,7 @@
+:host {
+  margin-bottom: 10px;
+}
+
 .select-lang {
   display: flex;
   flex-direction: row;
@@ -7,7 +11,6 @@
   gap: 20px;
   padding: 20px;
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .language-label {
