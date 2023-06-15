@@ -10,6 +10,7 @@ import { TranscriptionTranslationOutputComponent } from './transcription-transla
 import { SpeechRecordingComponent } from './speech-recording/speech-recording.component';
 import { AudioUploadComponent } from './audio-upload/audio-upload.component';
 import { SelectInputWayComponent } from './select-input-way/select-input-way.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SelectInputWayComponent } from './select-input-way/select-input-way.com
     AudioUploadComponent,
     SelectInputWayComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
