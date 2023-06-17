@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { TranscriptionComponent } from './transcription.component';
 
 describe('AudioRecorderComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+  let component: TranscriptionComponent;
+  let fixture: ComponentFixture<TranscriptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainComponent],
+      declarations: [TranscriptionComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(TranscriptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

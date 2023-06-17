@@ -1,4 +1,4 @@
-import { LANGUAGES } from './../languages.constants';
+import { LANGUAGES } from '../../languages.constants';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

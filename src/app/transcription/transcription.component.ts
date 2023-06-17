@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AudioTranscriptionService } from '../audio-transcription.service';
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  templateUrl: './transcription.component.html',
+  styleUrls: ['./transcription.component.scss'],
 })
-export class MainComponent implements OnInit {
+export class TranscriptionComponent implements OnInit {
   transcription: string | null = null;
   translation: string | null = null;
   selectedLanguagesOptions = {

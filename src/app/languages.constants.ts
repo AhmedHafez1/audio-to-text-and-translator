@@ -10,7 +10,6 @@ export const LANGUAGES = [
   { code: 'ja', name: 'Japanese' },
   { code: 'pa', name: 'Punjabi' },
   { code: 'de', name: 'German' },
-  { code: 'jv', name: 'Javanese' },
   { code: 'te', name: 'Telugu' },
   { code: 'vi', name: 'Vietnamese' },
   { code: 'ko', name: 'Korean' },

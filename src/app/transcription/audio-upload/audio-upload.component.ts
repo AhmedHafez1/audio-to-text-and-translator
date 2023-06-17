@@ -1,4 +1,4 @@
-import { AudioConverterService } from './../audio-converter.service';
+import { AudioConverterService } from '../../audio-converter.service';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
