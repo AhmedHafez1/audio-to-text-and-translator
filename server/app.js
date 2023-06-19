@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+
 const transcribeTranslate = require("./routes/transcribe-translate");
+const authUser = require("./routes/auth");
 const audioConvert = require("./routes/audio-converter");
 const connectDB = require("./db/connect");
 const handleErrors = require("./middleware/error-handler");
+const routeNotExist = require("./middleware/route-not-existing");
 require("express-async-errors");
 const app = express();
 
@@ -14,8 +17,9 @@ app.use(express.json());
 // Routes
 app.use("/api/transcribe-translate", transcribeTranslate);
 app.use("/api/convert", audioConvert);
+app.use("/user", authUser);
 
-// Error Handler Middleware
+app.use(routeNotExist);
 app.use(handleErrors);
 
 // Start the server
