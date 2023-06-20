@@ -1,0 +1,49 @@
+<!-- login.component.html -->
+<div class="container">
+  <div class="left-section">
+    <form class="login-form" [formGroup]="signForm" (ngSubmit)="onSubmit()">
+      <h2>{{ register ? "SIGN UP" : "LOGIN" }}</h2>
+      <mat-form-field appearance="outline" *ngIf="register">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" autocomplete="off" />
+        <mat-error *ngIf="signForm.controls['name'].hasError('required')"
+          >Name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="signForm.controls['email'].hasError('required')"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="signForm.controls['email'].hasError('email')"
+          >Invalid email</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          autocomplete="off"
+        />
+        <mat-error *ngIf="signForm.controls['password'].hasError('required')"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="accent" type="submit">
+        Register Now!
+      </button>
+    </form>
+  </div>
+  <div class="right-section"></div>
+</div>

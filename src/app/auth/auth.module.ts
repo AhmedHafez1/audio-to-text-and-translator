@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
+import { SignComponent } from './sign/sign.component';
 import { RegisterComponent } from './register/register.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [SignComponent, RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     FormsModule,
