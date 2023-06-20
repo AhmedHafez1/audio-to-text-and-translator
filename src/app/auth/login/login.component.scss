@@ -9,7 +9,7 @@
 }
 
 .left-section {
-  background-color: $primary-dark;
+  background-color: $accent-med;
   flex: 0 37%;
   height: 100%;
   display: flex;
@@ -22,13 +22,13 @@
   flex: 1;
   align-self: stretch;
   position: relative;
-  background-image: url("../../../assets/images/Speech.avif");
+  background-image: url("../../../assets/images/spacex-TV2gg2kZD1o-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   &::after {
     content: "";
     background: $primary-med; /* Change this to the color and opacity you want */
-    opacity: 0.7;
+    opacity: 0.4;
     position: absolute;
     top: 0;
     left: 0;
