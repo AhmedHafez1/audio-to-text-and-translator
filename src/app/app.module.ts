@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { TranscriptionModule } from './transcription/transcription.module';
 import { AppRoutingRoutingModule as AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,8 +15,8 @@ import { AppRoutingRoutingModule as AppRoutingModule } from './app-routing.modul
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
     TranscriptionModule,
+    AuthModule,
     AppRoutingModule,
   ],
   providers: [],
