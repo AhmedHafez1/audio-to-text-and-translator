@@ -1,8 +1,8 @@
 <!-- login.component.html -->
 <div class="container">
   <div class="left-section">
-    <h2>LOGIN</h2>
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2>LOGIN</h2>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input
@@ -33,6 +33,9 @@
       </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit">Login</button>
+      <button mat-raised-button color="accent" type="submit">
+        Register Now!
+      </button>
     </form>
   </div>
   <div class="right-section"></div>
