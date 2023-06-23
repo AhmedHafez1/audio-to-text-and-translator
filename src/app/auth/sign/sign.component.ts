@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { User } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-sign',
@@ -10,6 +11,7 @@ import { AuthService } from '../auth.service';
 export class SignComponent implements OnInit {
   @Input() register = false;
   signForm!: FormGroup;
+  @Output() formSubmit = new EventEmitter<User>();
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
@@ -28,19 +30,7 @@ export class SignComponent implements OnInit {
 
   onSubmit(): void {
     if (this.signForm.valid) {
-      const credentials = {
-        email: this.signForm.value.email,
-        password: this.signForm.value.password,
-      };
-
-      this.authService.login(credentials).subscribe(
-        () => {
-          // Handle successful login, such as redirecting to a protected page
-        },
-        (error: any) => {
-          // Handle login error, such as displaying error message
-        }
-      );
+      this.formSubmit.emit(this.signForm.value);
     }
   }
 
