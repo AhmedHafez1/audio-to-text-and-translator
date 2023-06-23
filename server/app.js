@@ -17,7 +17,7 @@ app.use(express.json());
 // Routes
 app.use("/api/transcribe-translate", transcribeTranslate);
 app.use("/api/convert", audioConvert);
-app.use("/user", authUser);
+app.use("/api/user", authUser);
 
 app.use(routeNotExist);
 app.use(handleErrors);
