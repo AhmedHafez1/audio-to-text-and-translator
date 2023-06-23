@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { User } from 'src/app/shared/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign',
@@ -13,7 +14,7 @@ export class SignComponent implements OnInit {
   signForm!: FormGroup;
   @Output() formSubmit = new EventEmitter<User>();
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -28,7 +29,16 @@ export class SignComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  onLogin(): void {
+    if (this.signForm.valid) {
+      this.formSubmit.emit(this.signForm.value);
+    }
+  }
+
+  onRegister(): Promise<boolean> | void {
+    if (!this.register) {
+      return this.router.navigate(['register']);
+    }
     if (this.signForm.valid) {
       this.formSubmit.emit(this.signForm.value);
     }

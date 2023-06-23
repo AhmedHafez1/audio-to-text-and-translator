@@ -3,7 +3,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   // Check if the email already exists
   const existingUser = await User.findOne({ email });
@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
   }
 
   // Create a new user
-  const newUser = new User({ email, password });
+  const newUser = new User({ name, email, password });
   await newUser.save();
 
   const token = newUser.createJwt();

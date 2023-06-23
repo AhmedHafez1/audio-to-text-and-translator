@@ -1,7 +1,7 @@
 <!-- login.component.html -->
 <div class="container">
   <div class="left-section">
-    <form class="login-form" [formGroup]="signForm" (ngSubmit)="onSubmit()">
+    <form class="login-form" [formGroup]="signForm">
       <h2>{{ register ? "SIGN UP" : "LOGIN" }}</h2>
       <mat-form-field appearance="outline" *ngIf="register">
         <mat-label>Name</mat-label>
@@ -39,8 +39,21 @@
         >
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit">Login</button>
-      <button mat-raised-button color="accent" type="submit">
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="onLogin()"
+        *ngIf="!register"
+      >
+        Login
+      </button>
+      <button
+        mat-raised-button
+        [color]="register ? 'primary' : 'accent'"
+        type="button"
+        (click)="onRegister()"
+      >
         Register Now!
       </button>
     </form>
