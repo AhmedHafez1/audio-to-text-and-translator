@@ -10,7 +10,9 @@ export class AuthService {
   private _token!: string;
   private _user!: User;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token')!;
+  }
 
   public get token(): string {
     return this._token;

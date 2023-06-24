@@ -4,9 +4,14 @@ import { TranscriptionComponent } from './transcription/transcription.component'
 import { SignComponent } from './auth/sign/sign.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'transcription', component: TranscriptionComponent },
+  {
+    path: 'transcription',
+    component: TranscriptionComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: 'transcription', pathMatch: 'full' },
