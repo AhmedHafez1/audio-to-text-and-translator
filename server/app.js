@@ -1,13 +1,12 @@
 require("dotenv").config();
+require("express-async-errors");
 const express = require("express");
-
 const transcribeTranslate = require("./routes/transcribe-translate");
 const authUser = require("./routes/auth");
 const audioConvert = require("./routes/audio-converter");
 const connectDB = require("./db/connect");
 const handleErrors = require("./middleware/error-handler");
 const routeNotExist = require("./middleware/route-not-existing");
-require("express-async-errors");
 const app = express();
 
 // Middleware

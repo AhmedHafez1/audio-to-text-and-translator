@@ -1,6 +1,5 @@
 const { BadRequest, UnAuthorized } = require("../errors");
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
