@@ -7,6 +7,7 @@ const audioConvert = require("./routes/audio-converter");
 const connectDB = require("./db/connect");
 const handleErrors = require("./middleware/error-handler");
 const routeNotExist = require("./middleware/route-not-existing");
+const auth = require("./middleware/auth");
 const app = express();
 
 // Middleware
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
-app.use("/api/transcribe-translate", transcribeTranslate);
+app.use("/api/transcribe-translate", auth, transcribeTranslate);
 app.use("/api/convert", audioConvert);
 app.use("/api/user", authUser);
 
