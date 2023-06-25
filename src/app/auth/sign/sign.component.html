@@ -42,7 +42,7 @@
       <button
         mat-raised-button
         color="primary"
-        type="button"
+        type="submit"
         (click)="onLogin()"
         *ngIf="!register"
       >
@@ -51,7 +51,7 @@
       <button
         mat-raised-button
         [color]="register ? 'primary' : 'accent'"
-        type="button"
+        type="submit"
         (click)="onRegister()"
       >
         Register Now!
