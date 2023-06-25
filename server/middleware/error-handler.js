@@ -1,6 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 
 const handleErrors = (err, req, res, next) => {
+  console.log(err);
+
   const error = {
     message: err.message || "Something went wrong",
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
