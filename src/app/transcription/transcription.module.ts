@@ -7,6 +7,7 @@ import { SpeechRecordingComponent } from './speech-recording/speech-recording.co
 import { TranscriptionTranslationOutputComponent } from './transcription-translation-output/transcription-translation-output.component';
 import { TranscriptionComponent } from './transcription.component';
 import { FormsModule } from '@angular/forms';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { FormsModule } from '@angular/forms';
     SpeechRecordingComponent,
     TranscriptionTranslationOutputComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AngularMaterialModule],
 })
 export class TranscriptionModule {}

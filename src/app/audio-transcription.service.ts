@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
+import { Transcription } from './transcription/models/transcription';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,9 @@ export class AudioTranscriptionService {
   public transcribeAndTranslateAudio(
     audioBlop: Blob,
     inputLanguage: string,
-    targetLanguage: string
-  ): Observable<{ transcription: string; translation: string }> {
+    targetLanguage: string,
+    title: string
+  ): Observable<Transcription> {
     const formData = new FormData();
 
     console.log(audioBlop);
@@ -22,10 +24,10 @@ export class AudioTranscriptionService {
     formData.append('encoding', 'LINEAR16');
     formData.append('languageCode', inputLanguage);
     formData.append('targetLanguage', targetLanguage);
+    formData.append('title', title);
 
-    return this.http.post<{ transcription: string; translation: string }>(
-      this.apiUrl,
-      formData
-    );
+    return this.http
+      .post<{ transcription: Transcription }>(this.apiUrl, formData)
+      .pipe(map((res) => res.transcription));
   }
 }

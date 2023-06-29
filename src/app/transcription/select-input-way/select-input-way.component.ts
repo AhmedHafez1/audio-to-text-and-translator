@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransOptions } from '../models/trans-optiond';
 
 @Component({
   selector: 'app-select-input-way',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./select-input-way.component.scss'],
 })
 export class SelectInputWayComponent implements OnInit {
-  @Input() selectedLanguagesOptions!: Record<string, string>;
+  @Input() transOptions!: TransOptions;
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,22 +1,24 @@
 <div class="container">
   <section class="actions">
     <app-select-languages
-      [selectedLanguagesOptions]="selectedLanguagesOptions"
+      [transOptions]="transcriptionOptions"
     ></app-select-languages>
     <app-select-input-way
-      [selectedLanguagesOptions]="selectedLanguagesOptions"
+      [transOptions]="transcriptionOptions"
     ></app-select-input-way>
     <app-speech-recording
-      *ngIf="selectedLanguagesOptions['selectedInputMode'] === 'record'"
+      *ngIf="transcriptionOptions['selectedInputMode'] === 'record'"
       (speechRecorded)="getTranscriptionAndTranslation($event)"
     ></app-speech-recording>
     <app-audio-upload
-      *ngIf="selectedLanguagesOptions['selectedInputMode'] === 'upload'"
+      *ngIf="transcriptionOptions['selectedInputMode'] === 'upload'"
       (audioUploaded)="getTranscriptionAndTranslation($event)"
     ></app-audio-upload>
   </section>
-  <app-transcription-translation-output
-    [transcription]="transcription"
-    [translation]="translation"
-  ></app-transcription-translation-output>
+  <ng-container *ngIf="transcription$ | async as transcription">
+    <app-transcription-translation-output
+      [transcription]="transcription.transcriptionText"
+      [translation]="transcription.translationText"
+    ></app-transcription-translation-output>
+  </ng-container>
 </div>

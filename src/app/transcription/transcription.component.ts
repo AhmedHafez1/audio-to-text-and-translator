@@ -1,5 +1,8 @@
+import { Observable, tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AudioTranscriptionService } from '../audio-transcription.service';
+import { Transcription } from './models/transcription';
+import { TransOptions } from './models/trans-optiond';
 
 @Component({
   selector: 'app-main',
@@ -7,12 +10,12 @@ import { AudioTranscriptionService } from '../audio-transcription.service';
   styleUrls: ['./transcription.component.scss'],
 })
 export class TranscriptionComponent implements OnInit {
-  transcription: string | null = null;
-  translation: string | null = null;
-  selectedLanguagesOptions = {
+  transcription$!: Observable<Transcription>;
+  transcriptionOptions: TransOptions = {
     targetLanguage: 'ar',
     inputLanguage: 'en',
     selectedInputMode: 'record',
+    title: 'New Transcription',
   };
 
   constructor(private audioTranscriptionService: AudioTranscriptionService) {}
@@ -20,19 +23,13 @@ export class TranscriptionComponent implements OnInit {
   ngOnInit(): void {}
 
   getTranscriptionAndTranslation(audioBlop: Blob) {
-    this.audioTranscriptionService
-      .transcribeAndTranslateAudio(
+    const { inputLanguage, targetLanguage, title } = this.transcriptionOptions;
+    this.transcription$ =
+      this.audioTranscriptionService.transcribeAndTranslateAudio(
         audioBlop,
-        this.selectedLanguagesOptions.inputLanguage,
-        this.selectedLanguagesOptions.targetLanguage
-      )
-      .subscribe({
-        next: (response) => {
-          this.transcription = response.transcription;
-          this.translation = response.translation;
-        },
-        error: (error) =>
-          console.error('Error transcribing and translating audio:', error),
-      });
+        inputLanguage,
+        targetLanguage,
+        title
+      );
   }
 }

@@ -1,10 +1,7 @@
 <div class="select-lang">
   <div>
     <label class="language-label">Input Language</label>
-    <select
-      class="language-select"
-      [(ngModel)]="selectedLanguagesOptions['inputLanguage']"
-    >
+    <select class="language-select" [(ngModel)]="transOptions['inputLanguage']">
       <option *ngFor="let language of languages" [value]="language.code">
         {{ language.name }}
       </option>
@@ -15,11 +12,15 @@
     <label class="language-label">Target Language</label>
     <select
       class="language-select"
-      [(ngModel)]="selectedLanguagesOptions['targetLanguage']"
+      [(ngModel)]="transOptions['targetLanguage']"
     >
       <option *ngFor="let language of languages" [value]="language.code">
         {{ language.name }}
       </option>
     </select>
   </div>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="transOptions.title" placeholder="Add title" />
+  </mat-form-field>
 </div>

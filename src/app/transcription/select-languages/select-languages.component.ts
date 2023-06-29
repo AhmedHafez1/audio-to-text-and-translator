@@ -1,5 +1,6 @@
 import { LANGUAGES } from '../../languages.constants';
 import { Component, Input, OnInit } from '@angular/core';
+import { TransOptions } from '../models/trans-optiond';
 
 @Component({
   selector: 'app-select-languages',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./select-languages.component.scss'],
 })
 export class SelectLanguagesComponent implements OnInit {
-  @Input() selectedLanguagesOptions!: Record<string, string>;
+  @Input() transOptions!: TransOptions;
   languages = LANGUAGES;
 
   constructor() {}
