@@ -8,10 +8,12 @@ import {
 } from '@angular/common/http';
 import { EMPTY, Observable, catchError } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dialog: MatDialog) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -22,13 +24,23 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         switch (error.status) {
           case 401:
             this.router.navigateByUrl('/login');
+            this.openErrorDialog(error.message);
             break;
           default:
-            alert(error.message);
+            this.openErrorDialog(error.message);
             break;
         }
         return EMPTY;
       })
     );
+  }
+
+  private openErrorDialog(errorMessage: string): void {
+    this.dialog.open(ErrorDialogComponent, {
+      width: '400px',
+      data: {
+        errorMessage: errorMessage,
+      },
+    });
   }
 }

@@ -9,6 +9,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatRadioModule,
     MatSelectModule,
     MatToolbarModule,
+    MatDialogModule,
   ],
 })
 export class AngularMaterialModule {}

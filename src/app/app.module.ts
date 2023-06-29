@@ -10,6 +10,7 @@ import { AppRoutingRoutingModule as AppRoutingModule } from './app-routing.modul
 import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HttpErrorInterceptor } from './core/http-error.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { HttpErrorInterceptor } from './core/http-error.interceptor';
     TranscriptionModule,
     AuthModule,
     AppRoutingModule,
+    CoreModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
