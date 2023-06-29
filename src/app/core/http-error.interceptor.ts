@@ -21,13 +21,15 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
+        console.log(error);
+
         switch (error.status) {
           case 401:
             this.router.navigateByUrl('/login');
-            this.openErrorDialog(error.message);
+            this.openErrorDialog(error.error.message);
             break;
           default:
-            this.openErrorDialog(error.message);
+            this.openErrorDialog(error.error.message);
             break;
         }
         return EMPTY;
