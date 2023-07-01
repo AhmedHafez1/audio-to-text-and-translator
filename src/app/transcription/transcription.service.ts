@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, map, tap } from 'rxjs';
 import { Transcription } from './models/transcription';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AudioTranscriptionService {
+  private transcriptionSubject = new BehaviorSubject<Transcription[]>([]);
+  public transcriptions$ = this.transcriptionSubject.asObservable();
+
   private readonly apiUrl = '/api/transcribe-translate';
   constructor(private http: HttpClient) {}
 
@@ -31,9 +34,24 @@ export class AudioTranscriptionService {
       .pipe(map((res) => res.transcription));
   }
 
-  getTranscriptions(): Observable<Transcription[]> {
-    return this.http
+  getTranscriptions(): void {
+    this.http
       .get<{ transcriptions: Transcription[]; count: number }>(this.apiUrl)
-      .pipe(map((res) => res.transcriptions));
+      .pipe(map((res) => this.transcriptionSubject.next(res.transcriptions)))
+      .subscribe();
+  }
+
+  deleteTranscription(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiUrl}/${id}`).pipe(
+      tap(() => {
+        this.transcriptionSubject.next(
+          this.transcriptions.filter((t) => t._id !== id)
+        );
+      })
+    );
+  }
+
+  get transcriptions(): Transcription[] {
+    return this.transcriptionSubject.value;
   }
 }

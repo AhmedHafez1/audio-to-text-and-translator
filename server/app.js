@@ -1,7 +1,7 @@
 require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
-const transcribeTranslate = require("./routes/transcribe-translate");
+const transcribeTranslate = require("./routes/transcription");
 const authUser = require("./routes/auth");
 const audioConvert = require("./routes/audio-converter");
 const connectDB = require("./db/connect");

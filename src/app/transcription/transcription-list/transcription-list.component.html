@@ -23,7 +23,12 @@
         <button mat-raised-button color="primary" class="edit-button">
           Edit
         </button>
-        <button mat-raised-button color="warn" class="delete-button">
+        <button
+          mat-raised-button
+          color="warn"
+          class="delete-button"
+          (click)="deleteTranscription(transcription._id!)"
+        >
           Delete
         </button>
       </mat-card-actions>
