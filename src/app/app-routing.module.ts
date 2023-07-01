@@ -5,11 +5,17 @@ import { SignComponent } from './auth/sign/sign.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { TranscriptionListComponent } from './transcription/transcription-list/transcription-list.component';
 
 const routes: Routes = [
   {
     path: 'transcription',
     component: TranscriptionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'transcription-list',
+    component: TranscriptionListComponent,
     canActivate: [AuthGuard],
   },
   { path: 'login', component: LoginComponent },

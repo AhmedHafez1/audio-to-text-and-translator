@@ -1,0 +1,67 @@
+@import "~@angular/material/theming";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Use the same theme as defined in Angular Material
+@include mat-core();
+
+// Define the $accent variable
+$accent: mat-color($mat-pink);
+
+// Customize specific styles for your component
+.mat-list-item {
+  height: auto !important;
+}
+
+.transcription-card {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transcription-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: $accent;
+}
+
+.transcription-date {
+  font-size: 14px;
+  color: mat-color($mat-grey, 600);
+}
+
+.transcription-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.translation-text {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.language-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.edit-button,
+.delete-button {
+  min-width: 100px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.edit-button {
+  background-color: $accent;
+  color: white;
+}
+
+.delete-button {
+  background-color: mat-color($mat-red, 500);
+  color: white;
+  margin-left: 10px;
+}
