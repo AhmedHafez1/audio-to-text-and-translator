@@ -1,6 +1,6 @@
 import { Observable, tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { AudioTranscriptionService } from '../audio-transcription.service';
+import { AudioTranscriptionService } from './audio-transcription.service';
 import { Transcription } from './models/transcription';
 import { TransOptions } from './models/trans-optiond';
 

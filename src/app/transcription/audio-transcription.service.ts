@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, tap } from 'rxjs';
-import { Transcription } from './transcription/models/transcription';
+import { Transcription } from './models/transcription';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +29,11 @@ export class AudioTranscriptionService {
     return this.http
       .post<{ transcription: Transcription }>(this.apiUrl, formData)
       .pipe(map((res) => res.transcription));
+  }
+
+  getTranscriptions(): Observable<Transcription[]> {
+    return this.http
+      .get<{ transcriptions: Transcription[]; count: number }>(this.apiUrl)
+      .pipe(map((res) => res.transcriptions));
   }
 }
