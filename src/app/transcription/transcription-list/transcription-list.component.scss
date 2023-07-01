@@ -7,17 +7,17 @@
 // Define the $accent variable
 $accent: mat-color($mat-pink);
 
-// Customize specific styles for your component
-.mat-list-item {
-  height: auto !important;
+mat-list {
+  padding: 40px;
 }
 
 .transcription-card {
   margin-bottom: 20px;
+  padding: 20px 30px;
   width: 100%;
   max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4) !important;
 }
 
 .transcription-title {
@@ -51,7 +51,7 @@ $accent: mat-color($mat-pink);
 .edit-button,
 .delete-button {
   min-width: 100px;
-  padding: 8px 16px;
+  padding: 2px 4px;
   border-radius: 4px;
 }
 
