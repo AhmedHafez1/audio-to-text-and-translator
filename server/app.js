@@ -1,9 +1,9 @@
 require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
-const transcribeTranslate = require("./routes/transcription");
+const transcribeTranslateRouter = require("./routes/transcription");
+const textToSpeechRouter = require("./routes/text-to-speech");
 const authUser = require("./routes/auth");
-const audioConvert = require("./routes/audio-converter");
 const connectDB = require("./db/connect");
 const handleErrors = require("./middleware/error-handler");
 const routeNotExist = require("./middleware/route-not-existing");
@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
-app.use("/api/transcribe-translate", auth, transcribeTranslate);
-app.use("/api/convert", audioConvert);
+app.use("/api/transcribe-translate", auth, transcribeTranslateRouter);
+app.use("/synthesize", auth, textToSpeechRouter);
 app.use("/api/user", authUser);
 
 app.use(routeNotExist);
