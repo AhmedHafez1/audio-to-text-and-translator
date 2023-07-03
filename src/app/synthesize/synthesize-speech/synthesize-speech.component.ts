@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SynthesizeService } from '../synthesize.service';
 import { LANGUAGES } from 'src/app/languages.constants';
 
@@ -8,8 +8,9 @@ import { LANGUAGES } from 'src/app/languages.constants';
   styleUrls: ['./synthesize-speech.component.scss'],
 })
 export class SynthesizeSpeechComponent {
-  audioUrl!: string;
-  text!: string;
+  @ViewChild('audioElement') audioElement!: ElementRef<HTMLAudioElement>;
+  audioUrl: string = '';
+  text: string = '';
   language: string = 'ar';
   languages = LANGUAGES;
 
@@ -21,10 +22,9 @@ export class SynthesizeSpeechComponent {
       .subscribe((response: Blob) => {
         const audioBlob = new Blob([response], { type: 'audio/mp3' });
         this.audioUrl = URL.createObjectURL(audioBlob);
-      });
-  }
 
-  downloadAudio() {
-    window.open(this.audioUrl);
+        this.audioElement.nativeElement.src = this.audioUrl;
+        this.audioElement.nativeElement.play();
+      });
   }
 }

@@ -5,7 +5,6 @@ const textToSpeech = async (req, res) => {
     req.body.text,
     req.body.languageCode
   );
-  res.set("Content-Type", "audio/mpeg");
   res.send(audioContent);
 };
 

@@ -3,7 +3,7 @@
     <mat-card-content>
       <mat-form-field>
         <mat-label>Text</mat-label>
-        <input matInput [(ngModel)]="text" />
+        <textarea rows="5" matInput [(ngModel)]="text"></textarea>
       </mat-form-field>
 
       <mat-form-field>
@@ -23,10 +23,7 @@
     </mat-card-actions>
   </mat-card>
 
-  <div *ngIf="audioUrl" class="audio-player">
-    <audio [src]="audioUrl" controls></audio>
-    <button mat-raised-button color="accent" (click)="downloadAudio()">
-      Download
-    </button>
+  <div class="audio-player">
+    <audio controls #audioElement></audio>
   </div>
 </div>
