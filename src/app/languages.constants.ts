@@ -1,8 +1,8 @@
 export const LANGUAGES = [
-  { code: 'ar', name: 'Arabic' },
+  { code: 'ar-EG', name: 'Arabic' },
   { code: 'zh', name: 'Chinese' },
   { code: 'es', name: 'Spanish' },
-  { code: 'en', name: 'English' },
+  { code: 'en-US', name: 'English' },
   { code: 'hi', name: 'Hindi' },
   { code: 'pt', name: 'Portuguese' },
   { code: 'bn', name: 'Bengali' },
@@ -13,9 +13,9 @@ export const LANGUAGES = [
   { code: 'te', name: 'Telugu' },
   { code: 'vi', name: 'Vietnamese' },
   { code: 'ko', name: 'Korean' },
-  { code: 'fr', name: 'French' },
+  { code: 'fr-FR', name: 'French' },
   { code: 'mr', name: 'Marathi' },
   { code: 'ta', name: 'Tamil' },
   { code: 'ur', name: 'Urdu' },
-  { code: 'it', name: 'Italian' },
+  { code: 'it-IT', name: 'Italian' },
 ];

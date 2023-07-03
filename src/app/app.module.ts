@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HttpErrorInterceptor } from './core/http-error.interceptor';
 import { CoreModule } from './core/core.module';
+import { SynthesizeModule } from './synthesize/synthesize.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     BrowserAnimationsModule,
     TranscriptionModule,
+    SynthesizeModule,
     AuthModule,
     AppRoutingModule,
     CoreModule,

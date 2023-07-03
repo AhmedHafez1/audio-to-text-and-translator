@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Text</mat-label>
+        <input matInput [(ngModel)]="text" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Language</mat-label>
+        <mat-select [(ngModel)]="language">
+          <mat-option value="lang.code" *ngFor="let lang of languages">{{
+            lang.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="synthesizeSpeech()">
+        Synthesize
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div *ngIf="audioUrl" class="audio-player">
+    <audio [src]="audioUrl" controls></audio>
+    <button mat-raised-button color="accent" (click)="downloadAudio()">
+      Download
+    </button>
+  </div>
+</div>

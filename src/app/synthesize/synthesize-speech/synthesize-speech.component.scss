@@ -1,0 +1,41 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.audio-player {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.mat-card {
+  width: 100%;
+  margin-bottom: 1rem;
+  -content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-card-actions {
+    justify-content: flex-end;
+  }
+
+  .audio-player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .audio-player-controls button {
+    margin-left: 1rem;
+  }
+}

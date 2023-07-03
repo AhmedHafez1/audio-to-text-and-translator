@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TranscriptionListComponent } from './transcription/transcription-list/transcription-list.component';
+import { SynthesizeSpeechComponent } from './synthesize/synthesize-speech/synthesize-speech.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: 'transcription-list',
     component: TranscriptionListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'synthesize',
+    component: SynthesizeSpeechComponent,
     canActivate: [AuthGuard],
   },
   { path: 'login', component: LoginComponent },

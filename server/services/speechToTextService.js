@@ -1,12 +1,7 @@
 const speech = require("@google-cloud/speech");
 const client = new speech.SpeechClient();
 
-async function transcribeAudio(
-  audioBuffer,
-  encoding,
-  // sampleRateHertz,
-  languageCode
-) {
+async function transcribeAudio(audioBuffer, encoding, languageCode) {
   const request = {
     audio: {
       content: audioBuffer.toString("base64"),

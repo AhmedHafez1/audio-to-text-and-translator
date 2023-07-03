@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/transcribe-translate", auth, transcribeTranslateRouter);
-app.use("/synthesize", auth, textToSpeechRouter);
+app.use("/api/synthesize", auth, textToSpeechRouter);
 app.use("/api/user", authUser);
 
 app.use(routeNotExist);
