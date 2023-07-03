@@ -9,7 +9,7 @@
       <mat-form-field>
         <mat-label>Language</mat-label>
         <mat-select [(ngModel)]="language">
-          <mat-option value="lang.code" *ngFor="let lang of languages">{{
+          <mat-option [value]="lang.code" *ngFor="let lang of languages">{{
             lang.name
           }}</mat-option>
         </mat-select>
