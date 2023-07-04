@@ -4,7 +4,6 @@ import { AudioUploadComponent } from './audio-upload/audio-upload.component';
 import { SelectInputWayComponent } from './select-input-way/select-input-way.component';
 import { SelectLanguagesComponent } from './select-languages/select-languages.component';
 import { SpeechRecordingComponent } from './speech-recording/speech-recording.component';
-import { TranscriptionTranslationOutputComponent } from './transcription-translation-output/transcription-translation-output.component';
 import { TranscriptionComponent } from './transcription.component';
 import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
@@ -18,7 +17,6 @@ import { NewTranscriptionComponent } from './new-transcription/new-transcription
     SelectInputWayComponent,
     SelectLanguagesComponent,
     SpeechRecordingComponent,
-    TranscriptionTranslationOutputComponent,
     TranscriptionListComponent,
     NewTranscriptionComponent,
   ],

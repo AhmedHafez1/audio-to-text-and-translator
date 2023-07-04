@@ -1,6 +1,14 @@
-<ng-container *ngIf="transcription$ | async as transcription">
-  <app-transcription-translation-output
-    [transcription]="transcription.transcriptionText"
-    [translation]="transcription.translationText"
-  ></app-transcription-translation-output>
-</ng-container>
+<div class="content">
+  <ng-container *ngIf="transcription$ | async as transcription">
+    <div class="transcription">
+      <h2>Transcription</h2>
+      <p *ngIf="transcription">{{ transcription.transcriptionText }}</p>
+    </div>
+    <div class="translation">
+      <h2>Translation</h2>
+      <p *ngIf="transcription.translationText">
+        {{ transcription.translationText }}
+      </p>
+    </div>
+  </ng-container>
+</div>
