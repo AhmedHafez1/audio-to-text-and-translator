@@ -15,6 +15,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'transcription/:id',
+    component: TranscriptionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'transcription-list',
     component: TranscriptionListComponent,
     canActivate: [AuthGuard],

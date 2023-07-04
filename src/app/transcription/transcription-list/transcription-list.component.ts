@@ -2,6 +2,7 @@ import { AudioTranscriptionService as TranscriptionService } from '../transcript
 import { Component, OnInit } from '@angular/core';
 import { Transcription } from '../models/transcription';
 import { Observable, of, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transcription-list',
@@ -12,7 +13,10 @@ export class TranscriptionListComponent implements OnInit {
   transcriptions$: Observable<Transcription[]> =
     this.transcriptionService.transcriptions$;
 
-  constructor(private transcriptionService: TranscriptionService) {}
+  constructor(
+    private transcriptionService: TranscriptionService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getTranscriptions();
@@ -24,5 +28,9 @@ export class TranscriptionListComponent implements OnInit {
 
   deleteTranscription(id: string): void {
     this.transcriptionService.deleteTranscription(id).subscribe();
+  }
+
+  editTranscription(id: string): void {
+    this.router.navigateByUrl(`/transcription/${id}`);
   }
 }
