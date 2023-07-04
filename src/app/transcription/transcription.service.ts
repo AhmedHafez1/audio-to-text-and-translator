@@ -41,6 +41,23 @@ export class AudioTranscriptionService {
       .subscribe();
   }
 
+  getTranscriptionById(id: string): Observable<Transcription> {
+    return this.http
+      .get<{ transcription: Transcription }>(`${this.apiUrl}/${id}`)
+      .pipe(map((res) => res.transcription));
+  }
+
+  editTranscriptionById(
+    id: string,
+    transcription: Transcription
+  ): Observable<Transcription> {
+    return this.http
+      .patch<{ transcription: Transcription }>(`${this.apiUrl}/${id}`, {
+        transcription,
+      })
+      .pipe(map((res) => res.transcription));
+  }
+
   deleteTranscription(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${id}`).pipe(
       tap(() => {

@@ -61,6 +61,17 @@ const getTranscriptions = async (req, res) => {
   res.status(StatusCodes.OK).json({ transcriptions, count });
 };
 
+const getTranscription = async (req, res) => {
+  const { userId } = req;
+  const { id } = req.params;
+
+  const transcription = await Transcription.findOne({ _id: id, userId });
+
+  if (!transcription) throw new NotFound("No transcriptions found!");
+
+  res.status(StatusCodes.OK).json({ transcription });
+};
+
 const editTranscription = async (req, res) => {
   const { userId } = req;
   const { id } = req.params;
@@ -101,4 +112,5 @@ module.exports = {
   getTranscriptions,
   deleteTranscription,
   editTranscription,
+  getTranscription,
 };
