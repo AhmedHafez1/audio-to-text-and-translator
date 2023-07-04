@@ -9,7 +9,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-// GET
+// Get
 router.get("/", getTranscriptions);
 
 // Multer
@@ -17,7 +17,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 router.post("/", upload.single("audioBuffer"), transcribeTranslate);
 
-// DELETE, Edit & Get one
+// Delete, Edit & Get one
 router
   .route("/:id")
   .delete(deleteTranscription)
