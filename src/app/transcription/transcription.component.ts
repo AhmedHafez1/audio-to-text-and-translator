@@ -12,7 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TranscriptionComponent implements OnInit {
   transcription$!: Observable<Transcription>;
-  transcriptionId: string | null = null;
+  transcriptionId!: string;
+  edit = false;
 
   constructor(
     private audioTranscriptionService: AudioTranscriptionService,
@@ -21,13 +22,17 @@ export class TranscriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
-      this.transcriptionId = params.get('id');
-      if (this.transcriptionId) {
-        this.transcription$ =
-          this.audioTranscriptionService.getTranscriptionById(
-            this.transcriptionId
-          );
-      }
+      this.transcriptionId = params.get('id')!;
+
+      this.transcription$ = this.audioTranscriptionService.getTranscriptionById(
+        this.transcriptionId
+      );
     });
+  }
+
+  save(transcription: Transcription): void {
+    this.audioTranscriptionService
+      .editTranscriptionById(this.transcriptionId, transcription)
+      .subscribe(() => (this.edit = false));
   }
 }

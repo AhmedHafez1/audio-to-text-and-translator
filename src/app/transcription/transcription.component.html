@@ -1,14 +1,71 @@
 <div class="content">
   <ng-container *ngIf="transcription$ | async as transcription">
-    <div class="transcription">
-      <h2>Transcription</h2>
-      <p *ngIf="transcription">{{ transcription.transcriptionText }}</p>
+    <header>
+      <h3 class="title">{{ transcription.title }}</h3>
+      <div class="in">
+        {{ transcription.inputLanguage | uppercase }}
+      </div>
+      <div class="out">
+        {{ transcription.targetLanguage | uppercase }}
+      </div>
+      <div class="spacer"></div>
+      <button
+        mat-icon-button
+        mat-raised-button
+        *ngIf="edit"
+        (click)="save(transcription)"
+      >
+        <mat-icon color="primary" aria-label="save">save</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        mat-raised-button
+        *ngIf="!edit"
+        (click)="edit = true"
+      >
+        <mat-icon color="primary" aria-label="save">edit</mat-icon>
+      </button>
+    </header>
+    <div
+      class="transcription"
+      [ngClass]="{ arabic: ['ar', 'ur'].includes(transcription.inputLanguage) }"
+    >
+      <h2>Transcription ({{ transcription.inputLanguage | uppercase }})</h2>
+      <div class="text">
+        <p *ngIf="!edit">{{ transcription.transcriptionText }}</p>
+        <mat-form-field *ngIf="edit">
+          <textarea
+            matInput
+            [(ngModel)]="transcription.transcriptionText"
+            [ngClass]="{
+              arabic: ['ar', 'ur'].includes(transcription.inputLanguage)
+            }"
+          ></textarea>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="translation">
-      <h2>Translation</h2>
-      <p *ngIf="transcription.translationText">
-        {{ transcription.translationText }}
-      </p>
+    <div
+      class="translation"
+      [ngClass]="{
+        arabic: ['ar', 'ur'].includes(transcription.targetLanguage)
+      }"
+      *ngIf="transcription.translationText"
+    >
+      <h2>Translation ({{ transcription.targetLanguage | uppercase }})</h2>
+      <div class="text">
+        <p *ngIf="!edit">
+          {{ transcription.translationText }}
+        </p>
+        <mat-form-field *ngIf="edit">
+          <textarea
+            matInput
+            [(ngModel)]="transcription.translationText"
+            [ngClass]="{
+              arabic: ['ar', 'ur'].includes(transcription.targetLanguage)
+            }"
+          ></textarea>
+        </mat-form-field>
+      </div>
     </div>
   </ng-container>
 </div>
