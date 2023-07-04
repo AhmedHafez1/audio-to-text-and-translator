@@ -7,21 +7,22 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TranscriptionListComponent } from './transcription/transcription-list/transcription-list.component';
 import { SynthesizeSpeechComponent } from './synthesize/synthesize-speech/synthesize-speech.component';
+import { NewTranscriptionComponent } from './transcription/new-transcription/new-transcription.component';
 
 const routes: Routes = [
   {
-    path: 'transcription',
-    component: TranscriptionComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'transcription/:id',
-    component: TranscriptionComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'transcription-list',
+    path: 'transcriptions',
     component: TranscriptionListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'transcriptions/new',
+    component: NewTranscriptionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'transcriptions/:id',
+    component: TranscriptionComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', redirectTo: 'transcription', pathMatch: 'full' },
+  { path: '', redirectTo: 'transcriptions', pathMatch: 'full' },
 ];
 
 @NgModule({

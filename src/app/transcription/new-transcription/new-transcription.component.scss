@@ -1,0 +1,13 @@
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 0;
+}
+
+@media screen and (max-width: 1488px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,6 @@
 import { LANGUAGES } from '../../languages.constants';
 import { Component, Input, OnInit } from '@angular/core';
-import { TransOptions } from '../models/trans-optiond';
+import { TransOptions } from '../models/trans-options';
 
 @Component({
   selector: 'app-select-languages',

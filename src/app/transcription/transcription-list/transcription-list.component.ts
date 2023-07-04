@@ -31,6 +31,6 @@ export class TranscriptionListComponent implements OnInit {
   }
 
   editTranscription(id: string): void {
-    this.router.navigateByUrl(`/transcription/${id}`);
+    this.router.navigateByUrl(`/transcriptions/${id}`);
   }
 }

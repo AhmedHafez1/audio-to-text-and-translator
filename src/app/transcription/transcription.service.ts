@@ -7,8 +7,8 @@ import { Transcription } from './models/transcription';
   providedIn: 'root',
 })
 export class AudioTranscriptionService {
-  private transcriptionSubject = new BehaviorSubject<Transcription[]>([]);
-  public transcriptions$ = this.transcriptionSubject.asObservable();
+  private transcriptionListSubject = new BehaviorSubject<Transcription[]>([]);
+  public transcriptions$ = this.transcriptionListSubject.asObservable();
 
   private readonly apiUrl = '/api/transcribe-translate';
   constructor(private http: HttpClient) {}
@@ -20,8 +20,6 @@ export class AudioTranscriptionService {
     title: string
   ): Observable<Transcription> {
     const formData = new FormData();
-
-    console.log(audioBlop);
 
     formData.append('audioBuffer', audioBlop, 'audio.wav');
     formData.append('encoding', 'LINEAR16');
@@ -37,7 +35,9 @@ export class AudioTranscriptionService {
   getTranscriptions(): void {
     this.http
       .get<{ transcriptions: Transcription[]; count: number }>(this.apiUrl)
-      .pipe(map((res) => this.transcriptionSubject.next(res.transcriptions)))
+      .pipe(
+        map((res) => this.transcriptionListSubject.next(res.transcriptions))
+      )
       .subscribe();
   }
 
@@ -61,7 +61,7 @@ export class AudioTranscriptionService {
   deleteTranscription(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${this.apiUrl}/${id}`).pipe(
       tap(() => {
-        this.transcriptionSubject.next(
+        this.transcriptionListSubject.next(
           this.transcriptions.filter((t) => t._id !== id)
         );
       })
@@ -69,6 +69,6 @@ export class AudioTranscriptionService {
   }
 
   get transcriptions(): Transcription[] {
-    return this.transcriptionSubject.value;
+    return this.transcriptionListSubject.value;
   }
 }

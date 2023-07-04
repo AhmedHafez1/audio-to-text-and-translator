@@ -2,7 +2,7 @@ import { Observable, tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AudioTranscriptionService } from './transcription.service';
 import { Transcription } from './models/transcription';
-import { TransOptions } from './models/trans-optiond';
+import { TransOptions } from './models/trans-options';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,12 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TranscriptionComponent implements OnInit {
   transcription$!: Observable<Transcription>;
-  transcriptionOptions: TransOptions = {
-    targetLanguage: 'ar',
-    inputLanguage: 'en',
-    selectedInputMode: 'record',
-    title: 'New Transcription',
-  };
   transcriptionId: string | null = null;
 
   constructor(
@@ -35,16 +29,5 @@ export class TranscriptionComponent implements OnInit {
           );
       }
     });
-  }
-
-  getTranscriptionAndTranslation(audioBlop: Blob) {
-    const { inputLanguage, targetLanguage, title } = this.transcriptionOptions;
-    this.transcription$ =
-      this.audioTranscriptionService.transcribeAndTranslateAudio(
-        audioBlop,
-        inputLanguage,
-        targetLanguage,
-        title
-      );
   }
 }

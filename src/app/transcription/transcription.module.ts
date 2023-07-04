@@ -9,6 +9,7 @@ import { TranscriptionComponent } from './transcription.component';
 import { FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { TranscriptionListComponent } from './transcription-list/transcription-list.component';
+import { NewTranscriptionComponent } from './new-transcription/new-transcription.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TranscriptionListComponent } from './transcription-list/transcription-l
     SpeechRecordingComponent,
     TranscriptionTranslationOutputComponent,
     TranscriptionListComponent,
+    NewTranscriptionComponent,
   ],
   imports: [CommonModule, FormsModule, AngularMaterialModule],
 })
