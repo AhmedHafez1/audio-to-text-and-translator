@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { MatStepperModule } from '@angular/material/stepper';
+
 @NgModule({
   declarations: [],
   exports: [
@@ -25,6 +27,7 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatDialogModule,
     MatListModule,
+    MatStepperModule,
   ],
 })
 export class AngularMaterialModule {}
