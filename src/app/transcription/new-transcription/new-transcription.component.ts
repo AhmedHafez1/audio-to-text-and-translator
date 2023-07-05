@@ -32,6 +32,10 @@ export class NewTranscriptionComponent implements OnInit {
         targetLanguage,
         title
       )
-      .subscribe((t) => this.router.navigateByUrl('/transcriptions/' + t._id));
+      .subscribe((t) =>
+        this.router.navigate(['/transcriptions', t._id], {
+          queryParams: { allowEdit: true },
+        })
+      );
   }
 }

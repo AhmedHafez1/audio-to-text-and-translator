@@ -33,13 +33,15 @@
       <h2>Transcription ({{ transcription.inputLanguage | uppercase }})</h2>
       <div class="text">
         <p *ngIf="!edit">{{ transcription.transcriptionText }}</p>
-        <mat-form-field *ngIf="edit">
+        <mat-form-field *ngIf="edit" appearance="fill">
           <textarea
             matInput
             [(ngModel)]="transcription.transcriptionText"
             [ngClass]="{
               arabic: ['ar', 'ur'].includes(transcription.inputLanguage)
             }"
+            rows="5"
+            autofocus
           ></textarea>
         </mat-form-field>
       </div>
@@ -56,13 +58,14 @@
         <p *ngIf="!edit">
           {{ transcription.translationText }}
         </p>
-        <mat-form-field *ngIf="edit">
+        <mat-form-field *ngIf="edit" appearance="fill">
           <textarea
             matInput
             [(ngModel)]="transcription.translationText"
             [ngClass]="{
               arabic: ['ar', 'ur'].includes(transcription.targetLanguage)
             }"
+            rows="5"
           ></textarea>
         </mat-form-field>
       </div>

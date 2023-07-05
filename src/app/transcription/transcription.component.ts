@@ -21,6 +21,7 @@ export class TranscriptionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.edit = !!this.activatedRoute.snapshot.queryParamMap.get('allowEdit');
     this.activatedRoute.paramMap.subscribe((params) => {
       this.transcriptionId = params.get('id')!;
 
