@@ -20,14 +20,16 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Step 3</ng-template>
-    <app-speech-recording
-      *ngIf="transcriptionOptions['selectedInputMode'] === 'record'"
-      (speechRecorded)="getTranscriptionAndTranslation($event)"
-    ></app-speech-recording>
-    <app-audio-upload
-      *ngIf="transcriptionOptions['selectedInputMode'] === 'upload'"
-      (audioUploaded)="getTranscriptionAndTranslation($event)"
-    ></app-audio-upload>
-    <button mat-button matStepperPrevious>Back</button>
+    <ng-template matStepContent>
+      <app-speech-recording
+        *ngIf="transcriptionOptions['selectedInputMode'] === 'record'"
+        (speechRecorded)="getTranscriptionAndTranslation($event)"
+      ></app-speech-recording>
+      <app-audio-upload
+        *ngIf="transcriptionOptions['selectedInputMode'] === 'upload'"
+        (audioUploaded)="getTranscriptionAndTranslation($event)"
+      ></app-audio-upload>
+      <button mat-button matStepperPrevious>Back</button>
+    </ng-template>
   </mat-step>
 </mat-stepper>
