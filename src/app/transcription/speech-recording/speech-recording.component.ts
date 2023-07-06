@@ -20,6 +20,7 @@ export class SpeechRecordingComponent implements OnInit, AfterViewInit {
   isRecording = false;
   private recordRTC: RecordRTC | null = null;
   private waveSurfer: any;
+  private recordedAudioBlob!: Blob;
 
   constructor() {}
 
@@ -56,11 +57,20 @@ export class SpeechRecordingComponent implements OnInit, AfterViewInit {
     this.isRecording = false;
     if (this.recordRTC) {
       this.recordRTC.stopRecording(() => {
-        const audioBlob = this.recordRTC!.getBlob();
-        if (audioBlob) {
-          this.speechRecorded.emit(audioBlob);
+        this.recordedAudioBlob = this.recordRTC!.getBlob();
+        if (this.recordedAudioBlob) {
+          this.loadWaveform();
         }
       });
     }
+  }
+
+  private loadWaveform() {
+    this.waveSurfer.load(URL.createObjectURL(this.recordedAudioBlob));
+  }
+
+  playWaveform() {
+    this.waveSurfer.play();
+    this.speechRecorded.emit(this.recordedAudioBlob);
   }
 }
