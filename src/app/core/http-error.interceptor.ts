@@ -39,7 +39,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
   private openErrorDialog(errorMessage: string): void {
     this.dialog.open(ErrorDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: {
         errorMessage: errorMessage,
       },
