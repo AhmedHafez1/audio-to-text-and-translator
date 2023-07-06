@@ -1,12 +1,12 @@
 <div class="container">
   <mat-card>
     <mat-card-content>
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Text</mat-label>
         <textarea rows="5" matInput [(ngModel)]="text"></textarea>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Language</mat-label>
         <mat-select [(ngModel)]="language">
           <mat-option [value]="lang.code" *ngFor="let lang of languages">{{
