@@ -6,21 +6,28 @@ import {
   OnInit,
   Output,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
 import * as RecordRTC from 'recordrtc';
+import { Observable, Subject, interval, map, takeUntil } from 'rxjs';
 const WaveSurfer = require('wavesurfer.js');
 @Component({
   selector: 'app-speech-recording',
   templateUrl: './speech-recording.component.html',
   styleUrls: ['./speech-recording.component.scss'],
 })
-export class SpeechRecordingComponent implements OnInit, AfterViewInit {
+export class SpeechRecordingComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @Output() speechRecorded: EventEmitter<Blob> = new EventEmitter();
   @ViewChild('waveform') waveform!: ElementRef<HTMLDivElement>;
   isRecording = false;
   private recordRTC: RecordRTC | null = null;
   private waveSurfer: any;
-  private recordedAudioBlob!: Blob;
+  recordedAudioBlob!: Blob;
+  public recordingTimer: number = 0;
+  private destroy: Subject<void> = new Subject();
+  timer$!: Observable<number>;
 
   constructor() {}
 
@@ -34,8 +41,16 @@ export class SpeechRecordingComponent implements OnInit, AfterViewInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
+  }
+
   startRecording(): void {
     this.isRecording = true;
+    this.timer$ = interval(1000)
+      .pipe(map((v) => v + 1))
+      .pipe(takeUntil(this.destroy));
 
     navigator.mediaDevices
       .getUserMedia({ audio: true })
@@ -54,12 +69,12 @@ export class SpeechRecordingComponent implements OnInit, AfterViewInit {
   }
 
   stopRecording(): void {
-    this.isRecording = false;
     if (this.recordRTC) {
       this.recordRTC.stopRecording(() => {
         this.recordedAudioBlob = this.recordRTC!.getBlob();
         if (this.recordedAudioBlob) {
           this.loadWaveform();
+          this.isRecording = false;
         }
       });
     }

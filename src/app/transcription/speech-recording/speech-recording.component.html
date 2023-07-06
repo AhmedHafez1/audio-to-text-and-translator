@@ -1,16 +1,45 @@
 <div class="buttons">
   <button
-    class="record-btn"
+    mat-icon-button
+    mat-flat-button
+    color="primary"
+    class="action-btn"
+    #startRecordingBtn
     (click)="startRecording()"
     [disabled]="isRecording"
   >
-    <span>Start Recording</span>
+    <mat-icon>mic</mat-icon>
   </button>
-  <button class="stop-btn" (click)="stopRecording()" [disabled]="!isRecording">
-    <span>Stop Recording</span>
+  <button
+    mat-icon-button
+    mat-flat-button
+    color="warn"
+    class="action-btn"
+    #stopRecordingBtn
+    (click)="stopRecording()"
+    [disabled]="!isRecording"
+  >
+    <mat-icon>stop</mat-icon>
   </button>
-  <button class="stop-btn" (click)="playWaveform()" [disabled]="isRecording">
-    <span>Play Recording</span>
+  <button
+    mat-icon-button
+    mat-flat-button
+    color="accent"
+    class="action-btn"
+    #playRecordingBtn
+    (click)="playWaveform()"
+    *ngIf="recordedAudioBlob && !isRecording"
+  >
+    <mat-icon>play_arrow</mat-icon>
   </button>
+</div>
+<div class="recording">
+  <div class="recording-flag" *ngIf="isRecording">
+    <mat-icon>mic</mat-icon>
+  </div>
+
+  <div class="timer" *ngIf="isRecording">
+    {{ timer$ | async | date : "mm:ss" }}
+  </div>
 </div>
 <div #waveform></div>

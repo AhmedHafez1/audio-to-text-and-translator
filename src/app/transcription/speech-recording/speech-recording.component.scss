@@ -7,8 +7,7 @@
   justify-content: center;
 }
 
-.record-btn,
-.stop-btn {
+.action-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,32 +15,32 @@
   padding: 10px 20px;
   margin: 10px;
   border: none;
-  border-radius: 5px;
-  background-color: #025fc3;
-  color: #fff;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.record-btn:hover,
-.stop-btn:hover {
+.action-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.record-btn:active,
-.stop-btn:active {
+.action-btn:active {
   transform: translateY(0);
   box-shadow: none;
 }
 
-.record-btn[disabled],
-.stop-btn[disabled] {
+.action-btn[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.record-btn span,
-.stop-btn span {
+.action-btn span {
   margin-left: 10px;
+}
+
+.recording {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
