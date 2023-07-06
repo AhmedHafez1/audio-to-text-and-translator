@@ -21,11 +21,23 @@
   >
     <mat-icon>stop</mat-icon>
   </button>
+</div>
+<div class="waveform-wrapper">
+  <div class="recording">
+    <div class="timer" *ngIf="isRecording">
+      {{ timer$ | async | timeFormat }}
+    </div>
+    <div class="recording-flag" *ngIf="isRecording">
+      <mat-icon>mic</mat-icon>
+      Recording
+    </div>
+  </div>
+  <div #waveform [ngStyle]="{ opacity: isRecording ? 0 : 1 }"></div>
   <button
     mat-icon-button
     mat-flat-button
     color="accent"
-    class="action-btn"
+    class="play-btn"
     #playRecordingBtn
     (click)="playWaveform()"
     *ngIf="recordedAudioBlob && !isRecording"
@@ -33,13 +45,3 @@
     <mat-icon>play_arrow</mat-icon>
   </button>
 </div>
-<div class="recording">
-  <div class="recording-flag" *ngIf="isRecording">
-    <mat-icon>mic</mat-icon>
-  </div>
-
-  <div class="timer" *ngIf="isRecording">
-    {{ timer$ | async | date : "mm:ss" }}
-  </div>
-</div>
-<div #waveform></div>
