@@ -4,3 +4,18 @@
     <span>Upload Audio</span>
   </label>
 </div>
+
+<div #waveform></div>
+<div class="flex-center">
+  <button
+    mat-icon-button
+    mat-flat-button
+    color="accent"
+    class="play-btn"
+    #playRecordingBtn
+    (click)="playWaveform()"
+    *ngIf="uploadedAudioBlob"
+  >
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+</div>

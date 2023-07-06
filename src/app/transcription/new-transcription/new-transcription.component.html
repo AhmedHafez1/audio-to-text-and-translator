@@ -23,12 +23,30 @@
     <ng-template matStepContent>
       <app-speech-recording
         *ngIf="transcriptionOptions['selectedInputMode'] === 'record'"
-        (speechRecorded)="getTranscriptionAndTranslation($event)"
+        (speechRecorded)="setAudioBlop($event)"
       ></app-speech-recording>
       <app-audio-upload
         *ngIf="transcriptionOptions['selectedInputMode'] === 'upload'"
-        (audioUploaded)="getTranscriptionAndTranslation($event)"
+        (audioUploaded)="setAudioBlop($event)"
       ></app-audio-upload>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 4</ng-template>
+    <ng-template matStepContent>
+      <div class="confirm">
+        <button
+          mat-flat-button
+          class="action-btn"
+          color="primary"
+          (click)="getTranscriptionAndTranslation()"
+        >
+          Confirm Transcription
+          <mat-icon>check</mat-icon>
+        </button>
+      </div>
       <button mat-button matStepperPrevious>Back</button>
     </ng-template>
   </mat-step>

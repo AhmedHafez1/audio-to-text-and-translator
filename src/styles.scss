@@ -32,3 +32,41 @@ body {
 .mat-typography h3 {
   margin: 0;
 }
+
+// Components
+.action-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-btn[disabled],
+.play-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.play-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 10px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+// Utility
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

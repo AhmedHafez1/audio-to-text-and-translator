@@ -15,6 +15,7 @@ export class NewTranscriptionComponent implements OnInit {
     selectedInputMode: 'record',
     title: 'New Transcription',
   };
+  private audioBlop!: Blob;
   constructor(
     private audioTranscriptionService: AudioTranscriptionService,
     private router: Router
@@ -22,12 +23,16 @@ export class NewTranscriptionComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getTranscriptionAndTranslation(audioBlop: Blob): void {
+  setAudioBlop(blop: Blob): void {
+    this.audioBlop = blop;
+  }
+
+  getTranscriptionAndTranslation(): void {
     const { inputLanguage, targetLanguage, title } = this.transcriptionOptions;
 
     this.audioTranscriptionService
       .transcribeAndTranslateAudio(
-        audioBlop,
+        this.audioBlop,
         inputLanguage,
         targetLanguage,
         title

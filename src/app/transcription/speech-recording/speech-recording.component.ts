@@ -74,6 +74,7 @@ export class SpeechRecordingComponent
         this.recordedAudioBlob = this.recordRTC!.getBlob();
         if (this.recordedAudioBlob) {
           this.loadWaveform();
+          this.speechRecorded.emit(this.recordedAudioBlob);
           this.isRecording = false;
         }
       });
@@ -86,6 +87,5 @@ export class SpeechRecordingComponent
 
   playWaveform() {
     this.waveSurfer.play();
-    this.speechRecorded.emit(this.recordedAudioBlob);
   }
 }

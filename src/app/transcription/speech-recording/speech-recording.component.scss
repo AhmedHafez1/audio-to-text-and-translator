@@ -5,38 +5,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.action-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.action-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.action-btn[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.action-btn span {
-  margin-left: 10px;
+  gap: 12px;
 }
 
 .waveform-wrapper {
@@ -76,19 +45,6 @@
     border-radius: 50%;
     color: white;
   }
-}
-
-.play-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  margin: 10px auto;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
 @keyframes blinking {
