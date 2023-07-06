@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { SharedModule } from '../shared/shared.module';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  declarations: [ErrorDialogComponent],
+  declarations: [ErrorDialogComponent, ToolbarComponent],
   imports: [CommonModule, SharedModule],
+  exports: [ToolbarComponent],
 })
 export class CoreModule {}

@@ -8,7 +8,7 @@ import { User } from '../shared/models/user';
 })
 export class AuthService {
   private _token!: string;
-  private _user!: User;
+  private _user: User | null = null;
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token')!;
@@ -22,11 +22,11 @@ export class AuthService {
     this._token = v;
   }
 
-  public get user(): User {
+  public get user(): User | null {
     return this._user;
   }
 
-  public set user(v: User) {
+  public set user(v: User | null) {
     this._user = v;
   }
 
@@ -46,5 +46,11 @@ export class AuthService {
     return this.http
       .post<User>(`api/user/login`, credentials)
       .pipe(tap(this.setUserAndToken));
+  }
+
+  logout(): void {
+    this.user = null;
+    this.token = '';
+    localStorage.removeItem('token');
   }
 }
