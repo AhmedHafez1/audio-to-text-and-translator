@@ -1,8 +1,17 @@
-.logo {
-  font-weight: bold;
-  font-size: 18px;
+mat-toolbar {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  height: 70px;
 }
 
-button[mat-icon-button] {
+.logo {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  img {
+    height: 50px;
+  }
+}
+
+button {
   margin-right: 10px;
 }

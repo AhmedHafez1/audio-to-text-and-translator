@@ -1,4 +1,4 @@
-<app-toolbar></app-toolbar>
-<div class="container">
+<app-toolbar *ngIf="auth.token"></app-toolbar>
+<div [class.container]="auth.token">
   <router-outlet></router-outlet>
 </div>
