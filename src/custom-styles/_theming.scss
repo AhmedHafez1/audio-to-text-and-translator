@@ -53,14 +53,20 @@ $custom-theme: mat.define-light-theme(
 // Include the default theme styles for the default-theme class
 .default-theme {
   @include mat.all-component-themes($default-theme);
+  @include mat.core-color($default-theme);
+  @include mat.button-color($default-theme);
 }
 
 // Include the dark theme styles for the dark-theme class
 .dark-theme {
   @include mat.all-component-themes($dark-theme);
+  @include mat.core-color($dark-theme);
+  @include mat.button-color($dark-theme);
 }
 
 // Include the custom theme styles for the custom-theme class
 .custom-theme {
   @include mat.all-component-themes($custom-theme);
+  @include mat.core-color($custom-theme);
+  @include mat.button-color($custom-theme);
 }

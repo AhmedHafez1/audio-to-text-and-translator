@@ -7,25 +7,11 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private currentTheme = 'default-theme';
 
-  // Inject the overlay container
-  constructor(private overlayContainer: OverlayContainer) {
-    // Apply the initial theme to the overlay container
-    this.overlayContainer
-      .getContainerElement()
-      .classList.add(this.currentTheme);
-  }
+  constructor() {}
 
-  // Set a new theme
   setTheme(theme: string) {
-    // Remove the old theme from the overlay container
-    this.overlayContainer
-      .getContainerElement()
-      .classList.remove(this.currentTheme);
-    // Update the current theme
+    document.body.classList.remove(this.currentTheme);
     this.currentTheme = theme;
-    // Add the new theme to the overlay container
-    this.overlayContainer
-      .getContainerElement()
-      .classList.add(this.currentTheme);
+    document.body.classList.add(this.currentTheme);
   }
 }
