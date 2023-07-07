@@ -4,13 +4,19 @@
   <button color="accent" mat-flat-button routerLink="/transcriptions/new">
     Speech To Text
   </button>
-  <button color="accent" mat-flat-button routerLink="/synthesize">
-    Text To Speech
-  </button>
+  <button mat-flat-button routerLink="/synthesize">Text To Speech</button>
   <button color="accent" mat-flat-button routerLink="/transcriptions">
     Transcription History
   </button>
   <span class="spacer"></span>
+  <mat-form-field appearance="outline">
+    <mat-label>Theme</mat-label>
+    <mat-select (selectionChange)="onThemeChange($event)">
+      <mat-option *ngFor="let theme of themes" [value]="theme.value">
+        {{ theme.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <button mat-flat-button color="warn" mat-icon-button (click)="logout()">
     <mat-icon>logout</mat-icon>
   </button>

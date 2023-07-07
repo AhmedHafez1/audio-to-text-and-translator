@@ -1,0 +1,66 @@
+// styles.scss
+// Import Angular Material theming functions
+@use "@angular/material" as mat;
+
+@import "@angular/material/theming";
+@include mat.core();
+
+// Define a default theme with primary, accent and warn colors
+$default-primary: mat.define-palette(mat.$indigo-palette);
+$default-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$default-warn: mat.define-palette(mat.$red-palette);
+
+$default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $default-primary,
+      accent: $default-accent,
+      warn: $default-warn,
+    ),
+  )
+);
+
+// Define a dark theme with primary, accent and warn colors
+$dark-primary: mat.define-palette(mat.$yellow-palette);
+$dark-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$dark-warn: mat.define-palette(mat.$deep-orange-palette);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+// Define a custom theme with primary, accent and warn colors
+$custom-primary: mat.define-palette(mat.$purple-palette);
+$custom-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$orange-palette);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+      warn: $custom-warn,
+    ),
+  )
+);
+
+// Include the default theme styles for the default-theme class
+.default-theme {
+  @include mat.all-component-themes($default-theme);
+}
+
+// Include the dark theme styles for the dark-theme class
+.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+}
+
+// Include the custom theme styles for the custom-theme class
+.custom-theme {
+  @include mat.all-component-themes($custom-theme);
+}
