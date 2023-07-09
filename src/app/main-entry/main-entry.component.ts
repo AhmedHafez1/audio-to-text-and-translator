@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { SwiperDirective } from '../swiper.directive';
 import { CommonModule } from '@angular/common';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-main-entry',
@@ -37,4 +38,19 @@ export class MainEntryComponent {
         'Access your previous transcriptions anytime and anywhere with our cloud storage.',
     },
   ];
+
+  public config: SwiperOptions = {
+    autoHeight: true,
+    spaceBetween: 20,
+    navigation: false,
+    pagination: { clickable: true, dynamicBullets: true },
+    slidesPerView: 1,
+    centeredSlides: true,
+    breakpoints: {
+      400: {
+        slidesPerView: 'auto',
+        centeredSlides: false,
+      },
+    },
+  };
 }
