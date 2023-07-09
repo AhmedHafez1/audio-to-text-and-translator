@@ -1,7 +1,7 @@
 // styles.scss
 // Import Angular Material theming functions
+
 @use "@angular/material" as mat;
-@import "@angular/material/theming";
 @include mat-core();
 
 // Define a default theme with primary, accent and warn colors
@@ -55,18 +55,34 @@ $custom-theme: mat.define-light-theme(
   )
 );
 
+@mixin theme-colors($theme) {
+  $primary: map-get($theme, primary);
+  .primary-color {
+    color: mat-color($primary);
+  }
+
+  .primary-bg {
+    background-color: mat-color($primary);
+  }
+}
+
+@include mat.all-component-themes($default-theme);
+@include theme-colors($default-theme);
+
 // Include the default theme styles for the default-theme class
 .default-theme {
   @include mat.all-component-themes($default-theme);
+  @include theme-colors($default-theme);
 }
 
 // Include the dark theme styles for the dark-theme class
 .dark-theme {
   @include mat.all-component-themes($dark-theme);
-  background: darkgray;
+  @include theme-colors($dark-theme);
 }
 
 // Include the custom theme styles for the custom-theme class
 .custom-theme {
   @include mat.all-component-themes($custom-theme);
+  @include theme-colors($custom-theme);
 }
