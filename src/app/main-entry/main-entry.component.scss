@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+.left-section {
+  width: 50%;
+  padding: 2rem;
+  background-color: #f0f0f0;
+}
+
+.right-section {
+  width: 50%;
+  overflow: hidden;
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: white;
+  background: linear-gradient(transparent, black);
+}

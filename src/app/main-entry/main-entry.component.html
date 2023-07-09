@@ -1,0 +1,94 @@
+<mat-toolbar color="primary">
+  <span>Speechy</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/about">About</a>
+  <a mat-button routerLink="/contact">Contact</a>
+  <a mat-button routerLink="/help">Help</a>
+</mat-toolbar>
+
+<div class="container">
+  <div class="left-section">
+    <h1>Welcome to Speechy!</h1>
+    <p>
+      Speechy is the ultimate app for transcribing and synthesizing speech. With
+      Speechy, you can:
+    </p>
+    <ul>
+      <li>
+        Transcribe speech to text in real time using Google's powerful speech
+        recognition technology
+      </li>
+      <li>
+        Synthesize text to speech in various languages and voices using Google's
+        natural sounding text-to-speech engine
+      </li>
+      <li>Edit your transcriptions with ease using our intuitive editor</li>
+      <li>Save and manage your transcription history with our cloud storage</li>
+    </ul>
+    <p>
+      Ready to get started? Login or register now and enjoy Speechy for free!
+    </p>
+    <button mat-raised-button color="accent" routerLink="/login">Login</button>
+    <button mat-raised-button color="accent" routerLink="/register">
+      Register
+    </button>
+  </div>
+
+  <div class="right-section">
+    <swiper-container
+      appSwiper
+      [slidesPerView]="1"
+      [spaceBetween]="30"
+      [loop]="true"
+      [pagination]="{ clickable: true }"
+      [navigation]="true"
+      [autoplay]="{ delay: 5000 }"
+    >
+      <swiper-slide *ngFor="let slide of slides; let i = index">
+        <img [src]="slide.image" alt="{{ slide.title }}" />
+        <div class="slide-content">
+          <h3>{{ slide.title }}</h3>
+          <p>{{ slide.description }}</p>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>
+
+<script>
+  import { Component } from "@angular/core";
+
+  @Component({
+    selector: "app-main-entry-page",
+    templateUrl: "./main-entry-page.component.html",
+    styleUrls: ["./main-entry-page.component.css"],
+  })
+  export class MainEntryPageComponent {
+    slides = [
+      {
+        image: "assets/images/slide1.png",
+        title: "Transcribe speech to text",
+        description:
+          "Use your microphone or upload an audio file and get a transcription in seconds.",
+      },
+      {
+        image: "assets/images/slide2.png",
+        title: "Synthesize text to speech",
+        description:
+          "Type or paste any text and listen to it in a variety of languages and voices.",
+      },
+      {
+        image: "assets/images/slide3.png",
+        title: "Edit your transcriptions",
+        description:
+          "Use our editor to make corrections, add punctuation, format text, and more.",
+      },
+      {
+        image: "assets/images/slide4.png",
+        title: "Save and manage your history",
+        description:
+          "Access your previous transcriptions anytime and anywhere with our cloud storage.",
+      },
+    ];
+  }
+</script>
