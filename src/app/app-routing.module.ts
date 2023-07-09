@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { TranscriptionListComponent } from './transcription/transcription-list/transcription-list.component';
 import { SynthesizeSpeechComponent } from './synthesize/synthesize-speech/synthesize-speech.component';
 import { NewTranscriptionComponent } from './transcription/new-transcription/new-transcription.component';
+import { MainEntryComponent } from './main-entry/main-entry.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', redirectTo: 'transcriptions', pathMatch: 'full' },
+  { path: '', component: MainEntryComponent },
 ];
 
 @NgModule({

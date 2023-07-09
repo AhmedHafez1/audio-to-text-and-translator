@@ -11,10 +11,6 @@ import { HttpErrorInterceptor } from './core/http-error.interceptor';
 import { CoreModule } from './core/core.module';
 import { SynthesizeModule } from './synthesize/synthesize.module';
 
-// import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle';
-// register Swiper custom elements
-register();
 @NgModule({
   declarations: [AppComponent],
   imports: [
