@@ -8,6 +8,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class MainEntryComponent {
   customOptions: OwlOptions = {
     loop: true,
+    autoplay: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
@@ -37,18 +38,21 @@ export class MainEntryComponent {
       src: '../../assets/images/spacex-TV2gg2kZD1o-unsplash.jpg',
       alt: 'Beautiful sunset over the ocean',
       title: 'Sunset at the Beach',
+      width: 500,
     },
     {
       id: '2',
       src: '../../assets/images/Speech.avif',
       alt: 'Lush green forest with a flowing river',
       title: 'Serene Forest Retreat',
+      width: 500,
     },
     {
       id: '3',
       src: '../../assets/images/spacex-TV2gg2kZD1o-unsplash.jpg',
       alt: 'City skyline at night with colorful lights',
       title: 'Urban Nightscape',
+      width: 500,
     },
   ];
 }

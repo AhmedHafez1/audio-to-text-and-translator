@@ -12,15 +12,10 @@
 
 .right-section {
   width: 50%;
-  overflow: hidden;
 }
 
-.slide-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  color: white;
-  background: linear-gradient(transparent, black);
+.carousel-slide {
+  width: 100% !important; /* Set the slide width to 100% */
+  height: 100vh !important; /* Set the slide height to 100% of the viewport height */
+  object-fit: cover; /* Ensure the image covers the entire slide */
 }
