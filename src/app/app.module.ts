@@ -10,9 +10,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { HttpErrorInterceptor } from './core/http-error.interceptor';
 import { CoreModule } from './core/core.module';
 import { SynthesizeModule } from './synthesize/synthesize.module';
+import { MainEntryComponent } from './main-entry/main-entry.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MainEntryComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -22,6 +25,8 @@ import { SynthesizeModule } from './synthesize/synthesize.module';
     AuthModule,
     AppRoutingModule,
     CoreModule,
+    CarouselModule,
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

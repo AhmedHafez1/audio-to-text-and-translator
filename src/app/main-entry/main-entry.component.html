@@ -1,11 +1,3 @@
-<mat-toolbar color="primary">
-  <span>Speechy</span>
-  <span class="spacer"></span>
-  <a mat-button routerLink="/about">About</a>
-  <a mat-button routerLink="/contact">Contact</a>
-  <a mat-button routerLink="/help">Help</a>
-</mat-toolbar>
-
 <div class="container">
   <div class="left-section">
     <h1>Welcome to Speechy!</h1>
@@ -35,6 +27,12 @@
   </div>
 
   <div class="right-section">
-    <gallery [items]="images"></gallery>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of slidesStore">
+        <ng-template carouselSlide [id]="slide.id">
+          <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" />
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
   </div>
 </div>

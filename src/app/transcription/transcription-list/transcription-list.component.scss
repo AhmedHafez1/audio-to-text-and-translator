@@ -1,14 +1,23 @@
 mat-list {
   padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  width: auto;
 }
 
 .transcription-card {
   margin-bottom: 20px;
   padding: 20px 30px;
-  width: 100%;
-  max-width: 500px;
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4) !important;
+  flex: 1 0 20%;
 }
 
 .transcription-title {
