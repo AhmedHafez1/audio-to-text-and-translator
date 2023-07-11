@@ -59,21 +59,57 @@ $custom-theme: mat.define-light-theme(
 
 @include mat.all-component-themes($default-theme);
 @include theme-colors($default-theme);
+.theme-bg {
+  background-color: #f7f7f7;
+}
+.theme-bg-2 {
+  background-color: #f0f0f0;
+}
+.theme-color {
+  color: #333;
+}
 
 // Include the default theme styles for the default-theme class
 .default-theme {
   @include mat.all-component-themes($default-theme);
   @include theme-colors($default-theme);
+  .theme-bg {
+    background-color: #f7f7f7;
+  }
+  .theme-bg-2 {
+    background-color: #f0f0f0;
+  }
+  .theme-color {
+    color: #333;
+  }
 }
 
 // Include the dark theme styles for the dark-theme class
 .dark-theme {
   @include mat.all-component-themes($dark-theme);
   @include theme-colors($dark-theme);
+  .theme-bg {
+    background-color: #555;
+  }
+  .theme-bg-2 {
+    background-color: #333;
+  }
+  .theme-color {
+    color: #fafafa;
+  }
 }
 
 // Include the custom theme styles for the custom-theme class
 .custom-theme {
   @include mat.all-component-themes($custom-theme);
   @include theme-colors($custom-theme);
+  .theme-bg {
+    background-color: #f7f7f7;
+  }
+  .theme-bg-2 {
+    background-color: #f0f0f0;
+  }
+  .theme-color {
+    color: #555;
+  }
 }

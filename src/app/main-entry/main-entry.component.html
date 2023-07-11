@@ -1,38 +1,59 @@
-<div class="container">
-  <div class="left-section">
-    <h1>Welcome to Speechy!</h1>
-    <p>
-      Speechy is the ultimate app for transcribing and synthesizing speech. With
-      Speechy, you can:
-    </p>
-    <ul>
-      <li>
-        Transcribe speech to text in real time using Google's powerful speech
-        recognition technology
-      </li>
-      <li>
-        Synthesize text to speech in various languages and voices using Google's
-        natural sounding text-to-speech engine
-      </li>
-      <li>Edit your transcriptions with ease using our intuitive editor</li>
-      <li>Save and manage your transcription history with our cloud storage</li>
-    </ul>
-    <p>
-      Ready to get started? Login or register now and enjoy Speechy for free!
-    </p>
-    <button mat-raised-button color="accent" routerLink="/login">Login</button>
-    <button mat-raised-button color="accent" routerLink="/register">
-      Register
-    </button>
+<div class="container theme-bg theme-color">
+  <div class="left-section theme-bg-2">
+    <mat-card class="theme-bg">
+      <mat-card-header>
+        <mat-card-title
+          ><h1 class="accent-color">Welcome to Speechy!</h1></mat-card-title
+        >
+        <mat-card-subtitle>
+          <p>
+            Speechy is the ultimate app for transcribing and synthesizing
+            speech.
+          </p>
+          <p>With Speechy, you can:</p></mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li>
+            Transcribe speech to text in real time using Google's powerful
+            speech recognition technology
+          </li>
+          <li>
+            Synthesize text to speech in various languages and voices using
+            Google's natural sounding text-to-speech engine
+          </li>
+          <li>Edit your transcriptions with ease using our intuitive editor</li>
+          <li>
+            Save and manage your transcription history with our cloud storage
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
   </div>
 
   <div class="right-section">
     <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let slide of slidesStore">
-        <ng-template carouselSlide [id]="slide.id" [width]="slide.width">
-          <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" />
-        </ng-template>
-      </ng-container>
+      <ng-template carouselSlide *ngFor="let slide of slides; let i = index">
+        <img [src]="slide.src" alt="{{ slide.title }}" />
+        <div class="slide-content">
+          <h3>{{ slide.title }}</h3>
+          <p>{{ slide.description }}</p>
+        </div>
+      </ng-template>
     </owl-carousel-o>
+    <div class="free-trial">
+      <p>
+        Ready to get started? Login or register now and enjoy Speechy for free!
+      </p>
+      <div class="free-trial__buttons">
+        <button mat-raised-button color="primary" routerLink="/login">
+          Login
+        </button>
+        <button mat-raised-button color="accent" routerLink="/register">
+          Register
+        </button>
+      </div>
+    </div>
   </div>
 </div>
