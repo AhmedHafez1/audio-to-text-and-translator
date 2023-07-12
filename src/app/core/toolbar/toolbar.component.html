@@ -29,15 +29,25 @@
   </button>
   <span class="spacer"></span>
   <span class="spacer"></span>
-  <mat-form-field appearance="outline">
-    <mat-label>Theme</mat-label>
-    <mat-select (selectionChange)="onThemeChange($event)">
-      <mat-option *ngFor="let theme of themes" [value]="theme.value">
-        {{ theme.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-flat-button color="warn" mat-icon-button (click)="logout()">
+  <button mat-button mat-icon-button [matMenuTriggerFor]="themeMenu">
+    <mat-icon>palette</mat-icon>
+  </button>
+  <button mat-button color="warn" mat-icon-button (click)="logout()">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="onThemeChange('default-theme')">
+    <mat-icon>star</mat-icon>
+    <span>Indigo & Pink</span>
+  </button>
+  <button mat-menu-item (click)="onThemeChange('dark-theme')">
+    <mat-icon>cloud</mat-icon>
+    <span>Dark & Blue Grey</span>
+  </button>
+  <button mat-menu-item (click)="onThemeChange('custom-theme')">
+    <mat-icon>eco</mat-icon>
+    <span>Purple & Green</span>
+  </button>
+</mat-menu>

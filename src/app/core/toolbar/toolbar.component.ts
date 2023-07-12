@@ -8,13 +8,6 @@ import { ThemeService } from '../services/theme/theme.service';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
-  // Define the available themes
-  themes = [
-    { name: 'Default', value: 'default-theme' },
-    { name: 'Dark', value: 'dark-theme' },
-    { name: 'Custom', value: 'custom-theme' },
-  ];
-
   constructor(
     private authService: AuthService,
     private themeService: ThemeService
@@ -22,8 +15,8 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onThemeChange(event: any) {
-    this.themeService.setTheme(event.value);
+  onThemeChange(theme: string) {
+    this.themeService.setTheme(theme);
   }
 
   logout(): void {

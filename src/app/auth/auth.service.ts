@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { User } from '../shared/models/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class AuthService {
   private _token!: string;
   private _user: User | null = null;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.token = localStorage.getItem('token')!;
   }
 
@@ -52,5 +53,6 @@ export class AuthService {
     this.user = null;
     this.token = '';
     localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 }
