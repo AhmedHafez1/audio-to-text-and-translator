@@ -1,14 +1,33 @@
 <mat-toolbar color="primary">
-  <span class="logo"><img src="../../../assets/logo.png" alt="logo" /></span>
-  <span>Speechy</span>
-  <span class="spacer"></span>
-  <button color="accent" mat-flat-button routerLink="/transcriptions/new">
+  <button mat-button routerLink="/" class="nav-btn nav-btn--logo">
+    <img src="../../../assets/logo.png" alt="logo" />
+  </button>
+  <button
+    mat-button
+    routerLink="/transcriptions/new"
+    class="nav-btn"
+    routerLinkActive="accent-bg"
+  >
     Speech To Text
   </button>
-  <button mat-flat-button routerLink="/synthesize">Text To Speech</button>
-  <button color="accent" mat-flat-button routerLink="/transcriptions">
-    Transcription History
+  <button
+    mat-button
+    routerLink="/synthesize"
+    class="nav-btn"
+    routerLinkActive="accent-bg"
+  >
+    Text To Speech
   </button>
+  <button
+    mat-button
+    routerLink="/transcriptions"
+    class="nav-btn"
+    routerLinkActive="accent-bg"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Your Transcriptions
+  </button>
+  <span class="spacer"></span>
   <span class="spacer"></span>
   <mat-form-field appearance="outline">
     <mat-label>Theme</mat-label>
