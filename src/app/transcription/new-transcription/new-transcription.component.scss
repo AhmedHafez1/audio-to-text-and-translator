@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  height: calc(100vh - 75px);
+  justify-content: center;
+  padding: 35px 150px;
+}
+
 .confirm {
   padding: 40px;
   display: flex;
@@ -10,4 +17,8 @@
   width: auto;
   font-size: 21px;
   background-color: green;
+}
+
+mat-stepper {
+  width: 100%;
 }
