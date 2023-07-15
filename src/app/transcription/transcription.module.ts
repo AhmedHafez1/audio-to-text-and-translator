@@ -20,6 +20,6 @@ import { SharedModule } from '../shared/shared.module';
     TranscriptionListComponent,
     NewTranscriptionComponent,
   ],
-  imports: [CommonModule, FormsModule, SharedModule],
+  imports: [CommonModule, SharedModule],
 })
 export class TranscriptionModule {}

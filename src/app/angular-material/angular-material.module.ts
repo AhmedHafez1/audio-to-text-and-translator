@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 @NgModule({
   declarations: [],
   exports: [
@@ -29,6 +30,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatStepperModule,
     MatListModule,
+    MatButtonToggleModule,
     MatMenuModule,
   ],
 })

@@ -10,6 +10,13 @@
     background-color: mat-color($primary);
   }
 
+  .success {
+    background-color: rgb(3, 146, 3);
+    button {
+      color: white;
+    }
+  }
+
   .accent-color {
     color: mat-color($accent);
   }

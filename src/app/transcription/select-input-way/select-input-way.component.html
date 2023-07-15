@@ -1,22 +1,10 @@
 <div class="input-mode">
-  <div class="radio-option">
-    <input
-      type="radio"
-      id="recordOption"
-      name="inputMode"
-      value="record"
-      [(ngModel)]="transOptions['selectedInputMode']"
-    />
-    <label for="recordOption">Record</label>
-  </div>
-  <div class="radio-option">
-    <input
-      type="radio"
-      id="uploadOption"
-      name="inputMode"
-      value="upload"
-      [(ngModel)]="transOptions['selectedInputMode']"
-    />
-    <label for="uploadOption">Upload</label>
-  </div>
+  <mat-button-toggle-group [(ngModel)]="transOptions['selectedInputMode']">
+    <mat-button-toggle value="record">
+      <mat-icon>mic</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="upload">
+      <mat-icon>upload</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
